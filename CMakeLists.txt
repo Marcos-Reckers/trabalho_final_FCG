@@ -12,6 +12,8 @@ set(SOURCES
   src/glad.c
   src/objmodel.cpp
   src/matrices.cpp
+  src/scene.cpp
+  src/global.cpp
 )
 
 cmake_minimum_required(VERSION 3.5.0)

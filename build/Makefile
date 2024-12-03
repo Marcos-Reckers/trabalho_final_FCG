@@ -152,6 +152,30 @@ src/glad.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/glad.c.s
 .PHONY : src/glad.c.s
 
+src/global.obj: src/global.cpp.obj
+.PHONY : src/global.obj
+
+# target to build an object file
+src/global.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/global.cpp.obj
+.PHONY : src/global.cpp.obj
+
+src/global.i: src/global.cpp.i
+.PHONY : src/global.i
+
+# target to preprocess a source file
+src/global.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/global.cpp.i
+.PHONY : src/global.cpp.i
+
+src/global.s: src/global.cpp.s
+.PHONY : src/global.s
+
+# target to generate assembly for a file
+src/global.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/global.cpp.s
+.PHONY : src/global.cpp.s
+
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
 
@@ -224,6 +248,30 @@ src/objmodel.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/objmodel.cpp.s
 .PHONY : src/objmodel.cpp.s
 
+src/scene.obj: src/scene.cpp.obj
+.PHONY : src/scene.obj
+
+# target to build an object file
+src/scene.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/scene.cpp.obj
+.PHONY : src/scene.cpp.obj
+
+src/scene.i: src/scene.cpp.i
+.PHONY : src/scene.i
+
+# target to preprocess a source file
+src/scene.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/scene.cpp.i
+.PHONY : src/scene.cpp.i
+
+src/scene.s: src/scene.cpp.s
+.PHONY : src/scene.s
+
+# target to generate assembly for a file
+src/scene.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/scene.cpp.s
+.PHONY : src/scene.cpp.s
+
 src/textrendering.obj: src/textrendering.cpp.obj
 .PHONY : src/textrendering.obj
 
@@ -284,6 +332,9 @@ help:
 	@echo ... src/glad.obj
 	@echo ... src/glad.i
 	@echo ... src/glad.s
+	@echo ... src/global.obj
+	@echo ... src/global.i
+	@echo ... src/global.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
@@ -293,6 +344,9 @@ help:
 	@echo ... src/objmodel.obj
 	@echo ... src/objmodel.i
 	@echo ... src/objmodel.s
+	@echo ... src/scene.obj
+	@echo ... src/scene.i
+	@echo ... src/scene.s
 	@echo ... src/textrendering.obj
 	@echo ... src/textrendering.i
 	@echo ... src/textrendering.s
