@@ -1,22 +1,38 @@
 [
 {
-  "directory": "C:/Users/Marcos/Documents/dev/trabalho_final_FCG/build",
-  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -I../include -g -std=c++11 -o CMakeFiles\\main.dir\\src\\main.cpp.obj -c C:\\Users\\Marcos\\Documents\\dev\\trabalho_final_FCG\\src\\main.cpp",
-  "file": "C:/Users/Marcos/Documents/dev/trabalho_final_FCG/src/main.cpp"
+  "directory": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/main.dir/includes_CXX.rsp -g -std=c++11 -o CMakeFiles\\main.dir\\src\\main.cpp.obj -c D:\\user\\Documents\\UFRGS\\TrabFinalFCG\\trabalho_final_FCG\\src\\main.cpp",
+  "file": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/main.cpp",
+  "output": "CMakeFiles/main.dir/src/main.cpp.obj"
 },
 {
-  "directory": "C:/Users/Marcos/Documents/dev/trabalho_final_FCG/build",
-  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -I../include -g -std=c++11 -o CMakeFiles\\main.dir\\src\\textrendering.cpp.obj -c C:\\Users\\Marcos\\Documents\\dev\\trabalho_final_FCG\\src\\textrendering.cpp",
-  "file": "C:/Users/Marcos/Documents/dev/trabalho_final_FCG/src/textrendering.cpp"
+  "directory": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/main.dir/includes_CXX.rsp -g -std=c++11 -o CMakeFiles\\main.dir\\src\\textrendering.cpp.obj -c D:\\user\\Documents\\UFRGS\\TrabFinalFCG\\trabalho_final_FCG\\src\\textrendering.cpp",
+  "file": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/textrendering.cpp",
+  "output": "CMakeFiles/main.dir/src/textrendering.cpp.obj"
 },
 {
-  "directory": "C:/Users/Marcos/Documents/dev/trabalho_final_FCG/build",
-  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -I../include -g -std=c++11 -o CMakeFiles\\main.dir\\src\\tiny_obj_loader.cpp.obj -c C:\\Users\\Marcos\\Documents\\dev\\trabalho_final_FCG\\src\\tiny_obj_loader.cpp",
-  "file": "C:/Users/Marcos/Documents/dev/trabalho_final_FCG/src/tiny_obj_loader.cpp"
+  "directory": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/main.dir/includes_CXX.rsp -g -std=c++11 -o CMakeFiles\\main.dir\\src\\tiny_obj_loader.cpp.obj -c D:\\user\\Documents\\UFRGS\\TrabFinalFCG\\trabalho_final_FCG\\src\\tiny_obj_loader.cpp",
+  "file": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/tiny_obj_loader.cpp",
+  "output": "CMakeFiles/main.dir/src/tiny_obj_loader.cpp.obj"
 },
 {
-  "directory": "C:/Users/Marcos/Documents/dev/trabalho_final_FCG/build",
-  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -I../include -g -o CMakeFiles\\main.dir\\src\\glad.c.obj -c C:\\Users\\Marcos\\Documents\\dev\\trabalho_final_FCG\\src\\glad.c",
-  "file": "C:/Users/Marcos/Documents/dev/trabalho_final_FCG/src/glad.c"
+  "directory": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe  @CMakeFiles/main.dir/includes_C.rsp -g -o CMakeFiles\\main.dir\\src\\glad.c.obj -c D:\\user\\Documents\\UFRGS\\TrabFinalFCG\\trabalho_final_FCG\\src\\glad.c",
+  "file": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/glad.c",
+  "output": "CMakeFiles/main.dir/src/glad.c.obj"
+},
+{
+  "directory": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/main.dir/includes_CXX.rsp -g -std=c++11 -o CMakeFiles\\main.dir\\src\\objmodel.cpp.obj -c D:\\user\\Documents\\UFRGS\\TrabFinalFCG\\trabalho_final_FCG\\src\\objmodel.cpp",
+  "file": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/objmodel.cpp",
+  "output": "CMakeFiles/main.dir/src/objmodel.cpp.obj"
+},
+{
+  "directory": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/main.dir/includes_CXX.rsp -g -std=c++11 -o CMakeFiles\\main.dir\\src\\matrices.cpp.obj -c D:\\user\\Documents\\UFRGS\\TrabFinalFCG\\trabalho_final_FCG\\src\\matrices.cpp",
+  "file": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/matrices.cpp",
+  "output": "CMakeFiles/main.dir/src/matrices.cpp.obj"
 }
 ]

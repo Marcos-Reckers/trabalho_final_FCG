@@ -10,6 +10,8 @@ set(SOURCES
   src/textrendering.cpp
   src/tiny_obj_loader.cpp
   src/glad.c
+  src/objmodel.cpp
+  src/matrices.cpp
 )
 
 cmake_minimum_required(VERSION 3.5.0)
