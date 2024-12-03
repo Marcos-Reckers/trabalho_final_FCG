@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/main.dir/src/callbacks.cpp.obj"
+  "CMakeFiles/main.dir/src/callbacks.cpp.obj.d"
   "CMakeFiles/main.dir/src/glad.c.obj"
   "CMakeFiles/main.dir/src/glad.c.obj.d"
   "CMakeFiles/main.dir/src/global.cpp.obj"
@@ -11,6 +13,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/main.dir/src/objmodel.cpp.obj.d"
   "CMakeFiles/main.dir/src/scene.cpp.obj"
   "CMakeFiles/main.dir/src/scene.cpp.obj.d"
+  "CMakeFiles/main.dir/src/shaders.cpp.obj"
+  "CMakeFiles/main.dir/src/shaders.cpp.obj.d"
   "CMakeFiles/main.dir/src/textrendering.cpp.obj"
   "CMakeFiles/main.dir/src/textrendering.cpp.obj.d"
   "CMakeFiles/main.dir/src/tiny_obj_loader.cpp.obj"

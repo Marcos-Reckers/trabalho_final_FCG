@@ -48,4 +48,9 @@ extern glm::vec3 g_BunnyPosition;
 extern float g_BunnySpeed;
 extern float g_CameraHeight;
 
+// Variáveis globais que armazenam a última posição do cursor do mouse, para
+// que possamos calcular quanto que o mouse se movimentou entre dois instantes
+// de tempo. Utilizadas no callback CursorPosCallback() abaixo.
+extern double g_LastCursorPosX, g_LastCursorPosY;
+
 #endif // GLOBAL_H

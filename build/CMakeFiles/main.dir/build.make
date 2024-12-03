@@ -191,6 +191,36 @@ CMakeFiles/main.dir/src/global.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/global.cpp.s"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\src\global.cpp -o CMakeFiles\main.dir\src\global.cpp.s
 
+CMakeFiles/main.dir/src/shaders.cpp.obj: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/shaders.cpp.obj: CMakeFiles/main.dir/includes_CXX.rsp
+CMakeFiles/main.dir/src/shaders.cpp.obj: D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/shaders.cpp
+CMakeFiles/main.dir/src/shaders.cpp.obj: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/main.dir/src/shaders.cpp.obj"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/shaders.cpp.obj -MF CMakeFiles\main.dir\src\shaders.cpp.obj.d -o CMakeFiles\main.dir\src\shaders.cpp.obj -c D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\src\shaders.cpp
+
+CMakeFiles/main.dir/src/shaders.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/shaders.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\src\shaders.cpp > CMakeFiles\main.dir\src\shaders.cpp.i
+
+CMakeFiles/main.dir/src/shaders.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/shaders.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\src\shaders.cpp -o CMakeFiles\main.dir\src\shaders.cpp.s
+
+CMakeFiles/main.dir/src/callbacks.cpp.obj: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/callbacks.cpp.obj: CMakeFiles/main.dir/includes_CXX.rsp
+CMakeFiles/main.dir/src/callbacks.cpp.obj: D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/callbacks.cpp
+CMakeFiles/main.dir/src/callbacks.cpp.obj: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/main.dir/src/callbacks.cpp.obj"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/callbacks.cpp.obj -MF CMakeFiles\main.dir\src\callbacks.cpp.obj.d -o CMakeFiles\main.dir\src\callbacks.cpp.obj -c D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\src\callbacks.cpp
+
+CMakeFiles/main.dir/src/callbacks.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/callbacks.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\src\callbacks.cpp > CMakeFiles\main.dir\src\callbacks.cpp.i
+
+CMakeFiles/main.dir/src/callbacks.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/callbacks.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\src\callbacks.cpp -o CMakeFiles\main.dir\src\callbacks.cpp.s
+
 # Object files for target main
 main_OBJECTS = \
 "CMakeFiles/main.dir/src/main.cpp.obj" \
@@ -200,7 +230,9 @@ main_OBJECTS = \
 "CMakeFiles/main.dir/src/objmodel.cpp.obj" \
 "CMakeFiles/main.dir/src/matrices.cpp.obj" \
 "CMakeFiles/main.dir/src/scene.cpp.obj" \
-"CMakeFiles/main.dir/src/global.cpp.obj"
+"CMakeFiles/main.dir/src/global.cpp.obj" \
+"CMakeFiles/main.dir/src/shaders.cpp.obj" \
+"CMakeFiles/main.dir/src/callbacks.cpp.obj"
 
 # External object files for target main
 main_EXTERNAL_OBJECTS =
@@ -213,12 +245,14 @@ D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/bin/Debug/main.exe: CMak
 D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/bin/Debug/main.exe: CMakeFiles/main.dir/src/matrices.cpp.obj
 D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/bin/Debug/main.exe: CMakeFiles/main.dir/src/scene.cpp.obj
 D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/bin/Debug/main.exe: CMakeFiles/main.dir/src/global.cpp.obj
+D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/bin/Debug/main.exe: CMakeFiles/main.dir/src/shaders.cpp.obj
+D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/bin/Debug/main.exe: CMakeFiles/main.dir/src/callbacks.cpp.obj
 D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/bin/Debug/main.exe: CMakeFiles/main.dir/build.make
 D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/bin/Debug/main.exe: D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/lib-mingw-32/libglfw3.a
 D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/bin/Debug/main.exe: CMakeFiles/main.dir/linkLibs.rsp
 D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/bin/Debug/main.exe: CMakeFiles/main.dir/objects1.rsp
 D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/bin/Debug/main.exe: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\bin\Debug\main.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\bin\Debug\main.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\main.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

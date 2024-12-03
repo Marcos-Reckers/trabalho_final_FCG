@@ -128,6 +128,30 @@ main/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
+src/callbacks.obj: src/callbacks.cpp.obj
+.PHONY : src/callbacks.obj
+
+# target to build an object file
+src/callbacks.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/callbacks.cpp.obj
+.PHONY : src/callbacks.cpp.obj
+
+src/callbacks.i: src/callbacks.cpp.i
+.PHONY : src/callbacks.i
+
+# target to preprocess a source file
+src/callbacks.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/callbacks.cpp.i
+.PHONY : src/callbacks.cpp.i
+
+src/callbacks.s: src/callbacks.cpp.s
+.PHONY : src/callbacks.s
+
+# target to generate assembly for a file
+src/callbacks.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/callbacks.cpp.s
+.PHONY : src/callbacks.cpp.s
+
 src/glad.obj: src/glad.c.obj
 .PHONY : src/glad.obj
 
@@ -272,6 +296,30 @@ src/scene.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/scene.cpp.s
 .PHONY : src/scene.cpp.s
 
+src/shaders.obj: src/shaders.cpp.obj
+.PHONY : src/shaders.obj
+
+# target to build an object file
+src/shaders.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/shaders.cpp.obj
+.PHONY : src/shaders.cpp.obj
+
+src/shaders.i: src/shaders.cpp.i
+.PHONY : src/shaders.i
+
+# target to preprocess a source file
+src/shaders.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/shaders.cpp.i
+.PHONY : src/shaders.cpp.i
+
+src/shaders.s: src/shaders.cpp.s
+.PHONY : src/shaders.s
+
+# target to generate assembly for a file
+src/shaders.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/shaders.cpp.s
+.PHONY : src/shaders.cpp.s
+
 src/textrendering.obj: src/textrendering.cpp.obj
 .PHONY : src/textrendering.obj
 
@@ -329,6 +377,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... main
+	@echo ... src/callbacks.obj
+	@echo ... src/callbacks.i
+	@echo ... src/callbacks.s
 	@echo ... src/glad.obj
 	@echo ... src/glad.i
 	@echo ... src/glad.s
@@ -347,6 +398,9 @@ help:
 	@echo ... src/scene.obj
 	@echo ... src/scene.i
 	@echo ... src/scene.s
+	@echo ... src/shaders.obj
+	@echo ... src/shaders.i
+	@echo ... src/shaders.s
 	@echo ... src/textrendering.obj
 	@echo ... src/textrendering.i
 	@echo ... src/textrendering.s
