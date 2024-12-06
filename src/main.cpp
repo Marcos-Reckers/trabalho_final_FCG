@@ -176,10 +176,14 @@ int main(int argc, char *argv[])
         glUseProgram(g_GpuProgramID);
 
         // Abaixo definimos as varáveis que efetivamente definem a câmera virtual.
-        glm::vec4 camera_lookat_l = glm::vec4(g_BunnyPosition, 1.0f);   // Ponto "l", para onde a câmera (look-at) estará sempre olhando
-        glm::vec4 camera_position_c = glm::vec4(g_BunnyPosition - glm::vec3(g_CameraDistance, -g_CameraHeight, g_CameraDistance), 1.0f); // Ponto "c", centro da câmera
+        glm::vec4 camera_lookat_l = glm::vec4(g_BunnyPosition, 1.0f); // Ponto "l", para onde a câmera (look-at) estará sempre olhando
+        float radius = g_CameraDistance;
+        float x = g_BunnyPosition.x + radius * - cos(g_CameraPhi) * cos(g_CameraTheta);
+        float y = g_BunnyPosition.y + radius * sin(g_CameraPhi);
+        float z = g_BunnyPosition.z + radius * cos(g_CameraPhi) * sin(g_CameraTheta);
+        glm::vec4 camera_position_c = glm::vec4(x, y, z, 1.0f);
         glm::vec4 camera_view_vector = camera_lookat_l - camera_position_c; // Vetor "view", sentido para onde a câmera está virada
-        glm::vec4 camera_up_vector = glm::vec4(0.0f, 1.0f, 0.0f, 0.0f); // Vetor "up" fixado para apontar para o "céu" (eito Y global)
+        glm::vec4 camera_up_vector = glm::vec4(0.0f, 1.0f, 0.0f, 0.0f);     // Vetor "up" fixado para apontar para o "céu" (eito Y global)
 
         // Computamos a matriz "View" utilizando os parâmetros da câmera para
         // definir o sistema de coordenadas da câmera.
@@ -244,7 +248,7 @@ int main(int argc, char *argv[])
 #define PLANE 2
 
         g_BunnyPosition.y = 0.0f; // Mantém o coelho no chão
-        
+
         // Desenhamos o modelo do coelho
         model = Matrix_Translate(g_BunnyPosition.x, g_BunnyPosition.y, g_BunnyPosition.z) * Matrix_Rotate_Z(g_AngleZ) * Matrix_Rotate_Y(g_AngleY) * Matrix_Rotate_X(g_AngleX);
         glUniformMatrix4fv(g_model_uniform, 1, GL_FALSE, glm::value_ptr(model));

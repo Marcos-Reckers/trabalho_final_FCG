@@ -1,62 +1,62 @@
 [
 {
-  "directory": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/build",
-  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/main.dir/includes_CXX.rsp -g -std=c++11 -o CMakeFiles\\main.dir\\src\\main.cpp.obj -c D:\\user\\Documents\\UFRGS\\TrabFinalFCG\\trabalho_final_FCG\\src\\main.cpp",
-  "file": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/main.cpp",
-  "output": "CMakeFiles/main.dir/src/main.cpp.obj"
+  "directory": "C:/Users/marco/Documents/dev/trabalho_final_FCG/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -IC:/Users/marco/Documents/dev/trabalho_final_FCG/include -g -std=c++11 -o CMakeFiles\\main.dir\\src\\main.cpp.obj -c C:\\Users\\marco\\Documents\\dev\\trabalho_final_FCG\\src\\main.cpp",
+  "file": "C:\\Users\\marco\\Documents\\dev\\trabalho_final_FCG\\src\\main.cpp",
+  "output": "CMakeFiles\\main.dir\\src\\main.cpp.obj"
 },
 {
-  "directory": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/build",
-  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/main.dir/includes_CXX.rsp -g -std=c++11 -o CMakeFiles\\main.dir\\src\\textrendering.cpp.obj -c D:\\user\\Documents\\UFRGS\\TrabFinalFCG\\trabalho_final_FCG\\src\\textrendering.cpp",
-  "file": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/textrendering.cpp",
-  "output": "CMakeFiles/main.dir/src/textrendering.cpp.obj"
+  "directory": "C:/Users/marco/Documents/dev/trabalho_final_FCG/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -IC:/Users/marco/Documents/dev/trabalho_final_FCG/include -g -std=c++11 -o CMakeFiles\\main.dir\\src\\textrendering.cpp.obj -c C:\\Users\\marco\\Documents\\dev\\trabalho_final_FCG\\src\\textrendering.cpp",
+  "file": "C:\\Users\\marco\\Documents\\dev\\trabalho_final_FCG\\src\\textrendering.cpp",
+  "output": "CMakeFiles\\main.dir\\src\\textrendering.cpp.obj"
 },
 {
-  "directory": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/build",
-  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/main.dir/includes_CXX.rsp -g -std=c++11 -o CMakeFiles\\main.dir\\src\\tiny_obj_loader.cpp.obj -c D:\\user\\Documents\\UFRGS\\TrabFinalFCG\\trabalho_final_FCG\\src\\tiny_obj_loader.cpp",
-  "file": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/tiny_obj_loader.cpp",
-  "output": "CMakeFiles/main.dir/src/tiny_obj_loader.cpp.obj"
+  "directory": "C:/Users/marco/Documents/dev/trabalho_final_FCG/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -IC:/Users/marco/Documents/dev/trabalho_final_FCG/include -g -std=c++11 -o CMakeFiles\\main.dir\\src\\tiny_obj_loader.cpp.obj -c C:\\Users\\marco\\Documents\\dev\\trabalho_final_FCG\\src\\tiny_obj_loader.cpp",
+  "file": "C:\\Users\\marco\\Documents\\dev\\trabalho_final_FCG\\src\\tiny_obj_loader.cpp",
+  "output": "CMakeFiles\\main.dir\\src\\tiny_obj_loader.cpp.obj"
 },
 {
-  "directory": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/build",
-  "command": "C:\\MinGW\\bin\\gcc.exe  @CMakeFiles/main.dir/includes_C.rsp -g -o CMakeFiles\\main.dir\\src\\glad.c.obj -c D:\\user\\Documents\\UFRGS\\TrabFinalFCG\\trabalho_final_FCG\\src\\glad.c",
-  "file": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/glad.c",
-  "output": "CMakeFiles/main.dir/src/glad.c.obj"
+  "directory": "C:/Users/marco/Documents/dev/trabalho_final_FCG/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -IC:/Users/marco/Documents/dev/trabalho_final_FCG/include -g -o CMakeFiles\\main.dir\\src\\glad.c.obj -c C:\\Users\\marco\\Documents\\dev\\trabalho_final_FCG\\src\\glad.c",
+  "file": "C:\\Users\\marco\\Documents\\dev\\trabalho_final_FCG\\src\\glad.c",
+  "output": "CMakeFiles\\main.dir\\src\\glad.c.obj"
 },
 {
-  "directory": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/build",
-  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/main.dir/includes_CXX.rsp -g -std=c++11 -o CMakeFiles\\main.dir\\src\\objmodel.cpp.obj -c D:\\user\\Documents\\UFRGS\\TrabFinalFCG\\trabalho_final_FCG\\src\\objmodel.cpp",
-  "file": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/objmodel.cpp",
-  "output": "CMakeFiles/main.dir/src/objmodel.cpp.obj"
+  "directory": "C:/Users/marco/Documents/dev/trabalho_final_FCG/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -IC:/Users/marco/Documents/dev/trabalho_final_FCG/include -g -std=c++11 -o CMakeFiles\\main.dir\\src\\objmodel.cpp.obj -c C:\\Users\\marco\\Documents\\dev\\trabalho_final_FCG\\src\\objmodel.cpp",
+  "file": "C:\\Users\\marco\\Documents\\dev\\trabalho_final_FCG\\src\\objmodel.cpp",
+  "output": "CMakeFiles\\main.dir\\src\\objmodel.cpp.obj"
 },
 {
-  "directory": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/build",
-  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/main.dir/includes_CXX.rsp -g -std=c++11 -o CMakeFiles\\main.dir\\src\\matrices.cpp.obj -c D:\\user\\Documents\\UFRGS\\TrabFinalFCG\\trabalho_final_FCG\\src\\matrices.cpp",
-  "file": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/matrices.cpp",
-  "output": "CMakeFiles/main.dir/src/matrices.cpp.obj"
+  "directory": "C:/Users/marco/Documents/dev/trabalho_final_FCG/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -IC:/Users/marco/Documents/dev/trabalho_final_FCG/include -g -std=c++11 -o CMakeFiles\\main.dir\\src\\matrices.cpp.obj -c C:\\Users\\marco\\Documents\\dev\\trabalho_final_FCG\\src\\matrices.cpp",
+  "file": "C:\\Users\\marco\\Documents\\dev\\trabalho_final_FCG\\src\\matrices.cpp",
+  "output": "CMakeFiles\\main.dir\\src\\matrices.cpp.obj"
 },
 {
-  "directory": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/build",
-  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/main.dir/includes_CXX.rsp -g -std=c++11 -o CMakeFiles\\main.dir\\src\\scene.cpp.obj -c D:\\user\\Documents\\UFRGS\\TrabFinalFCG\\trabalho_final_FCG\\src\\scene.cpp",
-  "file": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/scene.cpp",
-  "output": "CMakeFiles/main.dir/src/scene.cpp.obj"
+  "directory": "C:/Users/marco/Documents/dev/trabalho_final_FCG/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -IC:/Users/marco/Documents/dev/trabalho_final_FCG/include -g -std=c++11 -o CMakeFiles\\main.dir\\src\\scene.cpp.obj -c C:\\Users\\marco\\Documents\\dev\\trabalho_final_FCG\\src\\scene.cpp",
+  "file": "C:\\Users\\marco\\Documents\\dev\\trabalho_final_FCG\\src\\scene.cpp",
+  "output": "CMakeFiles\\main.dir\\src\\scene.cpp.obj"
 },
 {
-  "directory": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/build",
-  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/main.dir/includes_CXX.rsp -g -std=c++11 -o CMakeFiles\\main.dir\\src\\global.cpp.obj -c D:\\user\\Documents\\UFRGS\\TrabFinalFCG\\trabalho_final_FCG\\src\\global.cpp",
-  "file": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/global.cpp",
-  "output": "CMakeFiles/main.dir/src/global.cpp.obj"
+  "directory": "C:/Users/marco/Documents/dev/trabalho_final_FCG/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -IC:/Users/marco/Documents/dev/trabalho_final_FCG/include -g -std=c++11 -o CMakeFiles\\main.dir\\src\\global.cpp.obj -c C:\\Users\\marco\\Documents\\dev\\trabalho_final_FCG\\src\\global.cpp",
+  "file": "C:\\Users\\marco\\Documents\\dev\\trabalho_final_FCG\\src\\global.cpp",
+  "output": "CMakeFiles\\main.dir\\src\\global.cpp.obj"
 },
 {
-  "directory": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/build",
-  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/main.dir/includes_CXX.rsp -g -std=c++11 -o CMakeFiles\\main.dir\\src\\shaders.cpp.obj -c D:\\user\\Documents\\UFRGS\\TrabFinalFCG\\trabalho_final_FCG\\src\\shaders.cpp",
-  "file": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/shaders.cpp",
-  "output": "CMakeFiles/main.dir/src/shaders.cpp.obj"
+  "directory": "C:/Users/marco/Documents/dev/trabalho_final_FCG/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -IC:/Users/marco/Documents/dev/trabalho_final_FCG/include -g -std=c++11 -o CMakeFiles\\main.dir\\src\\shaders.cpp.obj -c C:\\Users\\marco\\Documents\\dev\\trabalho_final_FCG\\src\\shaders.cpp",
+  "file": "C:\\Users\\marco\\Documents\\dev\\trabalho_final_FCG\\src\\shaders.cpp",
+  "output": "CMakeFiles\\main.dir\\src\\shaders.cpp.obj"
 },
 {
-  "directory": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/build",
-  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/main.dir/includes_CXX.rsp -g -std=c++11 -o CMakeFiles\\main.dir\\src\\callbacks.cpp.obj -c D:\\user\\Documents\\UFRGS\\TrabFinalFCG\\trabalho_final_FCG\\src\\callbacks.cpp",
-  "file": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/callbacks.cpp",
-  "output": "CMakeFiles/main.dir/src/callbacks.cpp.obj"
+  "directory": "C:/Users/marco/Documents/dev/trabalho_final_FCG/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -IC:/Users/marco/Documents/dev/trabalho_final_FCG/include -g -std=c++11 -o CMakeFiles\\main.dir\\src\\callbacks.cpp.obj -c C:\\Users\\marco\\Documents\\dev\\trabalho_final_FCG\\src\\callbacks.cpp",
+  "file": "C:\\Users\\marco\\Documents\\dev\\trabalho_final_FCG\\src\\callbacks.cpp",
+  "output": "CMakeFiles\\main.dir\\src\\callbacks.cpp.obj"
 }
 ]
