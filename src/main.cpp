@@ -178,30 +178,36 @@ int main(int argc, char *argv[])
         // Abaixo definimos as varáveis que efetivamente definem a câmera virtual.
         glm::vec4 camera_lookat_l = glm::vec4(g_BunnyPosition, 1.0f); // Ponto "l", para onde a câmera (look-at) estará sempre olhando
         float radius = g_CameraDistance;
-        float x = g_BunnyPosition.x + radius * - cos(g_CameraPhi) * cos(g_CameraTheta);
-        float y = g_BunnyPosition.y + radius * sin(g_CameraPhi);
+        float x = g_BunnyPosition.x + radius * -cos(g_CameraPhi) * cos(g_CameraTheta);
+        float y = g_BunnyPosition.y + radius * -sin(g_CameraPhi);
         float z = g_BunnyPosition.z + radius * cos(g_CameraPhi) * sin(g_CameraTheta);
         glm::vec4 camera_position_c = glm::vec4(x, y, z, 1.0f);
         glm::vec4 camera_view_vector = camera_lookat_l - camera_position_c; // Vetor "view", sentido para onde a câmera está virada
         glm::vec4 camera_up_vector = glm::vec4(0.0f, 1.0f, 0.0f, 0.0f);     // Vetor "up" fixado para apontar para o "céu" (eito Y global)
-
         // Computamos a matriz "View" utilizando os parâmetros da câmera para
         // definir o sistema de coordenadas da câmera.
         glm::mat4 view = Matrix_Camera_View(camera_position_c, camera_view_vector, camera_up_vector);
 
         // Atualiza a posição do coelho com base nas teclas pressionadas
         glm::vec3 camera_direction = glm::normalize(glm::vec3(camera_view_vector));
+        glm::vec3 horizontal_direction = glm::normalize(glm::vec3(camera_direction.x, 0.0f, camera_direction.z));
         glm::vec3 camera_right = glm::normalize(glm::cross(camera_direction, glm::vec3(0.0f, 1.0f, 0.0f)));
 
         if (front)
-            g_BunnyPosition += g_BunnySpeed * camera_direction;
+            g_BunnyPosition += g_BunnySpeed * horizontal_direction;
         if (back)
-            g_BunnyPosition -= g_BunnySpeed * camera_direction;
+            g_BunnyPosition -= g_BunnySpeed * horizontal_direction;
         if (left)
             g_BunnyPosition -= g_BunnySpeed * camera_right;
         if (right)
             g_BunnyPosition += g_BunnySpeed * camera_right;
 
+        glm::vec3 bunny_forward = -horizontal_direction; // Direção horizontal da câmera
+        float angle = atan2(bunny_forward.z, bunny_forward.x);
+        glm::mat4 bunny_rotation = glm::rotate(glm::mat4(1.0f), (-angle - 1.6f ), glm::vec3(0.0f, 1.0f, 0.0f));
+        // Rotacione o coelho em 90 graus adicionais em torno do eixo Y
+        //glm::mat4 additional_rotation = glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        //bunny_rotation = additional_rotation * bunny_rotation;
         // Atualiza a posição da câmera para seguir o coelho
         glm::vec3 camera_position = g_BunnyPosition - camera_direction * g_CameraDistance;
         camera_position.y = g_CameraHeight; // Mantém a altura constante
@@ -214,27 +220,10 @@ int main(int argc, char *argv[])
         float nearplane = -0.1f; // Posição do "near plane"
         float farplane = -10.0f; // Posição do "far plane"
 
-        if (g_UsePerspectiveProjection)
-        {
-            // Projeção Perspectiva.
-            // Para definição do field of view (FOV), veja slides 205-215 do documento Aula_09_Projecoes.pdf.
-            float field_of_view = 3.141592 / 3.0f;
-            projection = Matrix_Perspective(field_of_view, g_ScreenRatio, nearplane, farplane);
-        }
-        else
-        {
-            // Projeção Ortográfica.
-            // Para definição dos valores l, r, b, t ("left", "right", "bottom", "top"),
-            // PARA PROJEÇÃO ORTOGRÁFICA veja slides 219-224 do documento Aula_09_Projecoes.pdf.
-            // Para simular um "zoom" ortográfico, computamos o valor de "t"
-            // utilizando a variável g_CameraDistance.
-            float t = 1.5f * g_CameraDistance / 2.5f;
-            float b = -t;
-            float r = t * g_ScreenRatio;
-            float l = -r;
-            projection = Matrix_Orthographic(l, r, b, t, nearplane, farplane);
-        }
-
+        // Projeção Perspectiva.
+        // Para definição do field of view (FOV), veja slides 205-215 do documento Aula_09_Projecoes.pdf.
+        float field_of_view = 3.141592 / 3.0f;
+        projection = Matrix_Perspective(field_of_view, g_ScreenRatio, nearplane, farplane);
         glm::mat4 model = Matrix_Identity(); // Transformação identidade de modelagem
 
         // Enviamos as matrizes "view" e "projection" para a placa de vídeo
@@ -250,7 +239,8 @@ int main(int argc, char *argv[])
         g_BunnyPosition.y = 0.0f; // Mantém o coelho no chão
 
         // Desenhamos o modelo do coelho
-        model = Matrix_Translate(g_BunnyPosition.x, g_BunnyPosition.y, g_BunnyPosition.z) * Matrix_Rotate_Z(g_AngleZ) * Matrix_Rotate_Y(g_AngleY) * Matrix_Rotate_X(g_AngleX);
+        model = glm::translate(glm::mat4(1.0f), g_BunnyPosition) * bunny_rotation;
+        // model = Matrix_Translate(g_BunnyPosition.x, g_BunnyPosition.y, g_BunnyPosition.z) * Matrix_Rotate_Z(g_AngleZ) * Matrix_Rotate_Y(g_AngleY) * Matrix_Rotate_X(g_AngleX);
         glUniformMatrix4fv(g_model_uniform, 1, GL_FALSE, glm::value_ptr(model));
         glUniform1i(g_object_id_uniform, BUNNY);
         DrawVirtualObject("the_bunny");
