@@ -38,7 +38,7 @@ bool left = false;
 bool right = false;
 
 glm::vec3 g_BunnyPosition(1.0f, 0.0f, 0.0f);
-float g_BunnySpeed = 0.5f;
+float g_BunnySpeed = 0.05f;
 float g_CameraHeight = 1.0f;
 
 double g_LastCursorPosX, g_LastCursorPosY;

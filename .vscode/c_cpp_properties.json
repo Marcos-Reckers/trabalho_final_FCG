@@ -43,7 +43,8 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceRoot}/include"
+                "${workspaceRoot}/include",
+                "C:/Program Files (x86)/CodeBlocks/MinGW/lib/gcc/mingw32/4.9.2/include/c++"
             ],
             "defines": [
                 "_DEBUG",
@@ -54,8 +55,7 @@
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""
             },
-            "intelliSenseMode": "windows-gcc-x64",
-            "compilerPath": "C:/msys64/ucrt64/bin/g++.exe"
+            "intelliSenseMode": "windows-msvc-x64"
         }
     ],
     "version": 4
