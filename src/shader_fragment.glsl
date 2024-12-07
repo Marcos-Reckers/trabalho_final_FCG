@@ -13,7 +13,7 @@ uniform mat4 view;
 uniform mat4 projection;
 
 // Identificador que define qual objeto está sendo desenhado no momento
-#define SPHERE 0
+#define WALL 0
 #define BUNNY  1
 #define PLANE  2
 uniform int object_id;
@@ -54,7 +54,7 @@ void main()
     vec3 Ka; // Refletância ambiente
     float q; // Expoente especular para o modelo de iluminação de Phong
 
-    if ( object_id == SPHERE )
+    if ( object_id == WALL )
     {
         // PREENCHA AQUI
         // Propriedades espectrais da esfera

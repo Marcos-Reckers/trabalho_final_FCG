@@ -1,4 +1,7 @@
 #include <cmath>
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
 #include <cstdio>
 #include <cstdlib>
 
@@ -34,6 +37,7 @@
 #include "shaders.h"
 #include "textrendering.h"
 #include "callbacks.h"
+#include <math.h>
 
 int main(int argc, char *argv[])
 {
@@ -108,7 +112,7 @@ int main(int argc, char *argv[])
     LoadShadersFromFiles();
 
     // Construímos a representação de objetos geométricos através de malhas de triângulos
-    ObjModel spheremodel("../../data/sphere.obj");
+    ObjModel spheremodel("../../data/wall.obj");
     ComputeNormals(&spheremodel);
     BuildTrianglesAndAddToVirtualScene(&spheremodel);
 
@@ -190,7 +194,7 @@ int main(int argc, char *argv[])
 
         glm::vec3 bunny_forward = -horizontal_direction; // Direção horizontal da câmera
         float angle = atan2(bunny_forward.z, bunny_forward.x);
-        glm::mat4 bunny_rotation = glm::rotate(glm::mat4(1.0f), (-angle - 1.6f ), glm::vec3(0.0f, 1.0f, 0.0f));
+        glm::mat4 bunny_rotation = glm::rotate(glm::mat4(1.0f), (-angle - 1.6f), glm::vec3(0.0f, 1.0f, 0.0f));
         glm::vec3 camera_position = g_BunnyPosition - camera_direction * g_CameraDistance;
         camera_position.y = g_CameraHeight; // Mantém a altura constante
 
@@ -199,7 +203,7 @@ int main(int argc, char *argv[])
 
         // Note que, no sistema de coordenadas da câmera, os planos near e far
         // estão no sentido negativo! Veja slides 176-204 do documento Aula_09_Projecoes.pdf.
-        float nearplane = -0.1f; // Posição do "near plane"
+        float nearplane = -0.1f;  // Posição do "near plane"
         float farplane = -100.0f; // Posição do "far plane"
 
         // Projeção Perspectiva.
@@ -214,7 +218,7 @@ int main(int argc, char *argv[])
         glUniformMatrix4fv(g_view_uniform, 1, GL_FALSE, glm::value_ptr(view));
         glUniformMatrix4fv(g_projection_uniform, 1, GL_FALSE, glm::value_ptr(projection));
 
-#define SPHERE 0
+#define WALL 0
 #define BUNNY 1
 #define PLANE 2
 
@@ -222,16 +226,36 @@ int main(int argc, char *argv[])
 
         // Desenhamos o modelo do coelho
         model = glm::translate(glm::mat4(1.0f), g_BunnyPosition) * bunny_rotation;
-        // model = Matrix_Translate(g_BunnyPosition.x, g_BunnyPosition.y, g_BunnyPosition.z) * Matrix_Rotate_Z(g_AngleZ) * Matrix_Rotate_Y(g_AngleY) * Matrix_Rotate_X(g_AngleX);
         glUniformMatrix4fv(g_model_uniform, 1, GL_FALSE, glm::value_ptr(model));
         glUniform1i(g_object_id_uniform, BUNNY);
         DrawVirtualObject("the_bunny");
 
         // Desenhamos o modelo do plano (chão)
-        model = Matrix_Scale(50.0, 1.0, 50.0) * Matrix_Translate(0.0f, -1.0f, 0.0f) * Matrix_Rotate_Z(g_AngleZ) * Matrix_Rotate_Y(g_AngleY) * Matrix_Rotate_X(g_AngleX);
+        model = Matrix_Scale(40.0, 1.0, 40.0) * Matrix_Translate(0.0f, -1.0f, 0.0f) * Matrix_Rotate_Z(g_AngleZ) * Matrix_Rotate_Y(g_AngleY) * Matrix_Rotate_X(g_AngleX);
         glUniformMatrix4fv(g_model_uniform, 1, GL_FALSE, glm::value_ptr(model));
         glUniform1i(g_object_id_uniform, PLANE);
         DrawVirtualObject("the_plane");
+
+        // Desenhamos o modelo da parede
+        model = Matrix_Scale(1.0, 20.0, 50.0) * Matrix_Translate(32.0f, 0.5f, 0.0f) * Matrix_Rotate_Z(g_AngleZ) * Matrix_Rotate_Y(g_AngleY) * Matrix_Rotate_X(g_AngleX);
+        glUniformMatrix4fv(g_model_uniform, 1, GL_FALSE, glm::value_ptr(model));
+        glUniform1i(g_object_id_uniform, WALL);
+        DrawVirtualObject("the_wall");
+        // Desenhamos o modelo da parede
+        model = Matrix_Scale(1.0, 20.0, 50.0) * Matrix_Translate(-32.0f, 0.5f, 0.0f) * Matrix_Rotate_Z(g_AngleZ) * Matrix_Rotate_Y(-M_PI) * Matrix_Rotate_X(g_AngleX);
+        glUniformMatrix4fv(g_model_uniform, 1, GL_FALSE, glm::value_ptr(model));
+        glUniform1i(g_object_id_uniform, WALL);
+        DrawVirtualObject("the_wall");
+        // Desenhamos o modelo da parede
+        model = Matrix_Scale(50.0, 20.0, 1.0) * Matrix_Translate(0.0f, 0.5f, 35.0f) * Matrix_Rotate_Z(g_AngleZ) * Matrix_Rotate_Y(-M_PI / 2) * Matrix_Rotate_X(g_AngleX);
+        glUniformMatrix4fv(g_model_uniform, 1, GL_FALSE, glm::value_ptr(model));
+        glUniform1i(g_object_id_uniform, WALL);
+        DrawVirtualObject("the_wall");
+        // Desenhamos o modelo da parede
+        model = Matrix_Scale(50.0, 20.0, 1.0) * Matrix_Translate(0.0f, 0.5f, -35.0f) * Matrix_Rotate_Z(g_AngleZ) * Matrix_Rotate_Y(M_PI / 2) * Matrix_Rotate_X(g_AngleX);
+        glUniformMatrix4fv(g_model_uniform, 1, GL_FALSE, glm::value_ptr(model));
+        glUniform1i(g_object_id_uniform, WALL);
+        DrawVirtualObject("the_wall");
 
         // Imprimimos na tela informação sobre o número de quadros renderizados
         // por segundo (frames per second).
