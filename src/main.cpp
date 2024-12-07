@@ -1,20 +1,3 @@
-//     Universidade Federal do Rio Grande do Sul
-//             Instituto de Informática
-//       Departamento de Informática Aplicada
-//
-//    INF01047 Fundamentos de Computação Gráfica
-//               Prof. Eduardo Gastal
-//
-//                   LABORATÓRIO 4
-//
-
-// Arquivos "headers" padrões de C podem ser incluídos em um
-// programa C++, sendo necessário somente adicionar o caractere
-// "c" antes de seu nome, e remover o sufixo ".h". Exemplo:
-//    #include <stdio.h> // Em C
-//  vira
-//    #include <cstdio> // Em C++
-//
 #include <cmath>
 #include <cstdio>
 #include <cstdlib>
@@ -81,7 +64,7 @@ int main(int argc, char *argv[])
     // Criamos uma janela do sistema operacional, com 800 colunas e 600 linhas
     // de pixels, e com título "INF01047 ...".
     GLFWwindow *window;
-    window = glfwCreateWindow(800, 600, "INF01047 - 00315653 - Marcos L K Reckers", NULL, NULL);
+    window = glfwCreateWindow(800, 600, "INF01047 - Ninja Survival", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
@@ -154,6 +137,9 @@ int main(int argc, char *argv[])
     glCullFace(GL_BACK);
     glFrontFace(GL_CCW);
 
+    // Configuramos o modo do cursor para desabilitado
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+
     // Ficamos em um loop infinito, renderizando, até que o usuário feche a janela
     while (!glfwWindowShouldClose(window))
     {
@@ -179,7 +165,7 @@ int main(int argc, char *argv[])
         glm::vec4 camera_lookat_l = glm::vec4(g_BunnyPosition, 1.0f); // Ponto "l", para onde a câmera (look-at) estará sempre olhando
         float radius = g_CameraDistance;
         float x = g_BunnyPosition.x + radius * -cos(g_CameraPhi) * cos(g_CameraTheta);
-        float y = g_BunnyPosition.y + radius * -sin(g_CameraPhi);
+        float y = g_BunnyPosition.y + radius * sin(g_CameraPhi);
         float z = g_BunnyPosition.z + radius * cos(g_CameraPhi) * sin(g_CameraTheta);
         glm::vec4 camera_position_c = glm::vec4(x, y, z, 1.0f);
         glm::vec4 camera_view_vector = camera_lookat_l - camera_position_c; // Vetor "view", sentido para onde a câmera está virada
@@ -205,10 +191,6 @@ int main(int argc, char *argv[])
         glm::vec3 bunny_forward = -horizontal_direction; // Direção horizontal da câmera
         float angle = atan2(bunny_forward.z, bunny_forward.x);
         glm::mat4 bunny_rotation = glm::rotate(glm::mat4(1.0f), (-angle - 1.6f ), glm::vec3(0.0f, 1.0f, 0.0f));
-        // Rotacione o coelho em 90 graus adicionais em torno do eixo Y
-        //glm::mat4 additional_rotation = glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        //bunny_rotation = additional_rotation * bunny_rotation;
-        // Atualiza a posição da câmera para seguir o coelho
         glm::vec3 camera_position = g_BunnyPosition - camera_direction * g_CameraDistance;
         camera_position.y = g_CameraHeight; // Mantém a altura constante
 
@@ -218,7 +200,7 @@ int main(int argc, char *argv[])
         // Note que, no sistema de coordenadas da câmera, os planos near e far
         // estão no sentido negativo! Veja slides 176-204 do documento Aula_09_Projecoes.pdf.
         float nearplane = -0.1f; // Posição do "near plane"
-        float farplane = -10.0f; // Posição do "far plane"
+        float farplane = -100.0f; // Posição do "far plane"
 
         // Projeção Perspectiva.
         // Para definição do field of view (FOV), veja slides 205-215 do documento Aula_09_Projecoes.pdf.
@@ -236,7 +218,7 @@ int main(int argc, char *argv[])
 #define BUNNY 1
 #define PLANE 2
 
-        g_BunnyPosition.y = 0.0f; // Mantém o coelho no chão
+        g_BunnyPosition.y = 1.0f; // Mantém o coelho no chão
 
         // Desenhamos o modelo do coelho
         model = glm::translate(glm::mat4(1.0f), g_BunnyPosition) * bunny_rotation;
@@ -246,17 +228,10 @@ int main(int argc, char *argv[])
         DrawVirtualObject("the_bunny");
 
         // Desenhamos o modelo do plano (chão)
-        model = Matrix_Scale(2.0, 1.0, 2.0) * Matrix_Translate(0.0f, -1.0f, 0.0f) * Matrix_Rotate_Z(g_AngleZ) * Matrix_Rotate_Y(g_AngleY) * Matrix_Rotate_X(g_AngleX);
+        model = Matrix_Scale(50.0, 1.0, 50.0) * Matrix_Translate(0.0f, -1.0f, 0.0f) * Matrix_Rotate_Z(g_AngleZ) * Matrix_Rotate_Y(g_AngleY) * Matrix_Rotate_X(g_AngleX);
         glUniformMatrix4fv(g_model_uniform, 1, GL_FALSE, glm::value_ptr(model));
         glUniform1i(g_object_id_uniform, PLANE);
         DrawVirtualObject("the_plane");
-
-        // Imprimimos na tela os ângulos de Euler que controlam a rotação do
-        // terceiro cubo.
-        TextRendering_ShowEulerAngles(window);
-
-        // Imprimimos na informação sobre a matriz de projeção sendo utilizada.
-        TextRendering_ShowProjection(window);
 
         // Imprimimos na tela informação sobre o número de quadros renderizados
         // por segundo (frames per second).
