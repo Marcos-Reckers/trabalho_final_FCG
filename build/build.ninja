@@ -77,48 +77,6 @@ build CMakeFiles/main.dir/src/glad.c.obj: C_COMPILER__main_unscanned_Debug C$:/U
   OBJECT_DIR = CMakeFiles\main.dir
   OBJECT_FILE_DIR = CMakeFiles\main.dir\src
 
-build CMakeFiles/main.dir/src/objmodel.cpp.obj: CXX_COMPILER__main_unscanned_Debug C$:/Users/marco/Documents/dev/trabalho_final_FCG/src/objmodel.cpp || cmake_object_order_depends_target_main
-  DEP_FILE = CMakeFiles\main.dir\src\objmodel.cpp.obj.d
-  FLAGS = -g -std=c++11
-  INCLUDES = -IC:/Users/marco/Documents/dev/trabalho_final_FCG/include
-  OBJECT_DIR = CMakeFiles\main.dir
-  OBJECT_FILE_DIR = CMakeFiles\main.dir\src
-
-build CMakeFiles/main.dir/src/matrices.cpp.obj: CXX_COMPILER__main_unscanned_Debug C$:/Users/marco/Documents/dev/trabalho_final_FCG/src/matrices.cpp || cmake_object_order_depends_target_main
-  DEP_FILE = CMakeFiles\main.dir\src\matrices.cpp.obj.d
-  FLAGS = -g -std=c++11
-  INCLUDES = -IC:/Users/marco/Documents/dev/trabalho_final_FCG/include
-  OBJECT_DIR = CMakeFiles\main.dir
-  OBJECT_FILE_DIR = CMakeFiles\main.dir\src
-
-build CMakeFiles/main.dir/src/scene.cpp.obj: CXX_COMPILER__main_unscanned_Debug C$:/Users/marco/Documents/dev/trabalho_final_FCG/src/scene.cpp || cmake_object_order_depends_target_main
-  DEP_FILE = CMakeFiles\main.dir\src\scene.cpp.obj.d
-  FLAGS = -g -std=c++11
-  INCLUDES = -IC:/Users/marco/Documents/dev/trabalho_final_FCG/include
-  OBJECT_DIR = CMakeFiles\main.dir
-  OBJECT_FILE_DIR = CMakeFiles\main.dir\src
-
-build CMakeFiles/main.dir/src/global.cpp.obj: CXX_COMPILER__main_unscanned_Debug C$:/Users/marco/Documents/dev/trabalho_final_FCG/src/global.cpp || cmake_object_order_depends_target_main
-  DEP_FILE = CMakeFiles\main.dir\src\global.cpp.obj.d
-  FLAGS = -g -std=c++11
-  INCLUDES = -IC:/Users/marco/Documents/dev/trabalho_final_FCG/include
-  OBJECT_DIR = CMakeFiles\main.dir
-  OBJECT_FILE_DIR = CMakeFiles\main.dir\src
-
-build CMakeFiles/main.dir/src/shaders.cpp.obj: CXX_COMPILER__main_unscanned_Debug C$:/Users/marco/Documents/dev/trabalho_final_FCG/src/shaders.cpp || cmake_object_order_depends_target_main
-  DEP_FILE = CMakeFiles\main.dir\src\shaders.cpp.obj.d
-  FLAGS = -g -std=c++11
-  INCLUDES = -IC:/Users/marco/Documents/dev/trabalho_final_FCG/include
-  OBJECT_DIR = CMakeFiles\main.dir
-  OBJECT_FILE_DIR = CMakeFiles\main.dir\src
-
-build CMakeFiles/main.dir/src/callbacks.cpp.obj: CXX_COMPILER__main_unscanned_Debug C$:/Users/marco/Documents/dev/trabalho_final_FCG/src/callbacks.cpp || cmake_object_order_depends_target_main
-  DEP_FILE = CMakeFiles\main.dir\src\callbacks.cpp.obj.d
-  FLAGS = -g -std=c++11
-  INCLUDES = -IC:/Users/marco/Documents/dev/trabalho_final_FCG/include
-  OBJECT_DIR = CMakeFiles\main.dir
-  OBJECT_FILE_DIR = CMakeFiles\main.dir\src
-
 
 # =============================================================================
 # Link build statements for EXECUTABLE target main
@@ -127,7 +85,7 @@ build CMakeFiles/main.dir/src/callbacks.cpp.obj: CXX_COMPILER__main_unscanned_De
 #############################################
 # Link the executable C:\Users\marco\Documents\dev\trabalho_final_FCG\bin\Debug\main.exe
 
-build C$:/Users/marco/Documents/dev/trabalho_final_FCG/bin/Debug/main.exe: CXX_EXECUTABLE_LINKER__main_Debug CMakeFiles/main.dir/src/main.cpp.obj CMakeFiles/main.dir/src/textrendering.cpp.obj CMakeFiles/main.dir/src/tiny_obj_loader.cpp.obj CMakeFiles/main.dir/src/glad.c.obj CMakeFiles/main.dir/src/objmodel.cpp.obj CMakeFiles/main.dir/src/matrices.cpp.obj CMakeFiles/main.dir/src/scene.cpp.obj CMakeFiles/main.dir/src/global.cpp.obj CMakeFiles/main.dir/src/shaders.cpp.obj CMakeFiles/main.dir/src/callbacks.cpp.obj | C$:/Users/marco/Documents/dev/trabalho_final_FCG/lib-ucrt-64/libglfw3.a
+build C$:/Users/marco/Documents/dev/trabalho_final_FCG/bin/Debug/main.exe: CXX_EXECUTABLE_LINKER__main_Debug CMakeFiles/main.dir/src/main.cpp.obj CMakeFiles/main.dir/src/textrendering.cpp.obj CMakeFiles/main.dir/src/tiny_obj_loader.cpp.obj CMakeFiles/main.dir/src/glad.c.obj | C$:/Users/marco/Documents/dev/trabalho_final_FCG/lib-ucrt-64/libglfw3.a
   FLAGS = -g
   LINK_LIBRARIES = C:/Users/marco/Documents/dev/trabalho_final_FCG/lib-ucrt-64/libglfw3.a  -lgdi32  -lopengl32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\main.dir
