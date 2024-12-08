@@ -1,7 +1,7 @@
 #include <glad/glad.h>  // Include glad before any other OpenGL headers
 #include <GLFW/glfw3.h> // Include GLFW after glad
 
-#include "Renderer.h"
+#include "renderer.h"
 #include "global.h"
 #include <glm/gtc/type_ptr.hpp>
 

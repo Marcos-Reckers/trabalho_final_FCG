@@ -16,9 +16,9 @@ void LoadModels(int argc, char *argv[]) {
     ComputeNormals(&spheremodel);
     BuildTrianglesAndAddToVirtualScene(&spheremodel);
 
-    ObjModel bunnymodel("../../data/bunny.obj");
-    ComputeNormals(&bunnymodel);
-    BuildTrianglesAndAddToVirtualScene(&bunnymodel);
+    ObjModel playermodel("../../data/player.obj");
+    ComputeNormals(&playermodel);
+    BuildTrianglesAndAddToVirtualScene(&playermodel);
 
     ObjModel planemodel("../../data/plane.obj");
     ComputeNormals(&planemodel);

@@ -58,49 +58,33 @@ void KeyCallback(GLFWwindow *window, int key, int scancode, int action, int mod)
     if (key == GLFW_KEY_W)
     {
         if (action == GLFW_PRESS)
-        {
             front = true;
-        }
         else if (action == GLFW_RELEASE)
-        {
             front = false;
-        }
     }
 
     if (key == GLFW_KEY_S)
     {
         if (action == GLFW_PRESS)
-        {
             back = true;
-        }
         else if (action == GLFW_RELEASE)
-        {
             back = false;
-        }
     }
 
     if (key == GLFW_KEY_D)
     {
         if (action == GLFW_PRESS)
-        {
             right = true;
-        }
         else if (action == GLFW_RELEASE)
-        {
             right = false;
-        }
     }
 
     if (key == GLFW_KEY_A)
     {
         if (action == GLFW_PRESS)
-        {
             left = true;
-        }
         else if (action == GLFW_RELEASE)
-        {
             left = false;
-        }
     }
 }
 

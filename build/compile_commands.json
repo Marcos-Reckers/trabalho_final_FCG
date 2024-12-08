@@ -7,6 +7,12 @@
 },
 {
   "directory": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/main.dir/includes_CXX.rsp -g -std=c++11 -o CMakeFiles\\main.dir\\src\\camera.cpp.obj -c D:\\user\\Documents\\UFRGS\\TrabFinalFCG\\trabalho_final_FCG\\src\\camera.cpp",
+  "file": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/camera.cpp",
+  "output": "CMakeFiles/main.dir/src/camera.cpp.obj"
+},
+{
+  "directory": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/build",
   "command": "C:\\MinGW\\bin\\gcc.exe  @CMakeFiles/main.dir/includes_C.rsp -g -o CMakeFiles\\main.dir\\src\\glad.c.obj -c D:\\user\\Documents\\UFRGS\\TrabFinalFCG\\trabalho_final_FCG\\src\\glad.c",
   "file": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/glad.c",
   "output": "CMakeFiles/main.dir/src/glad.c.obj"

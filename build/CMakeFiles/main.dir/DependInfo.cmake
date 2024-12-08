@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/glad.c" "CMakeFiles/main.dir/src/glad.c.obj" "gcc" "CMakeFiles/main.dir/src/glad.c.obj.d"
   "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/callbacks.cpp" "CMakeFiles/main.dir/src/callbacks.cpp.obj" "gcc" "CMakeFiles/main.dir/src/callbacks.cpp.obj.d"
+  "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/camera.cpp" "CMakeFiles/main.dir/src/camera.cpp.obj" "gcc" "CMakeFiles/main.dir/src/camera.cpp.obj.d"
   "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/global.cpp" "CMakeFiles/main.dir/src/global.cpp.obj" "gcc" "CMakeFiles/main.dir/src/global.cpp.obj.d"
   "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/main.cpp" "CMakeFiles/main.dir/src/main.cpp.obj" "gcc" "CMakeFiles/main.dir/src/main.cpp.obj.d"
   "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/matrices.cpp" "CMakeFiles/main.dir/src/matrices.cpp.obj" "gcc" "CMakeFiles/main.dir/src/matrices.cpp.obj.d"

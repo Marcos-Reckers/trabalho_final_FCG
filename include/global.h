@@ -45,8 +45,9 @@ extern bool back;
 extern bool left;
 extern bool right;
 
-extern glm::vec3 g_BunnyPosition;
-extern float g_BunnySpeed;
+extern glm::vec3 g_PlayerPosition;
+extern glm::mat4 g_PlayerRotation;
+extern float g_PlayerSpeed;
 extern float g_CameraHeight;
 
 extern double g_LastCursorPosX, g_LastCursorPosY;
