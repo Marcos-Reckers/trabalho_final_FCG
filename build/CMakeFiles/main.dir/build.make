@@ -71,26 +71,11 @@ include CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/codegen:
 .PHONY : CMakeFiles/main.dir/codegen
 
-CMakeFiles/main.dir/src/Renderer.cpp.obj: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/Renderer.cpp.obj: CMakeFiles/main.dir/includes_CXX.rsp
-CMakeFiles/main.dir/src/Renderer.cpp.obj: D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/Renderer.cpp
-CMakeFiles/main.dir/src/Renderer.cpp.obj: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/src/Renderer.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/Renderer.cpp.obj -MF CMakeFiles\main.dir\src\Renderer.cpp.obj.d -o CMakeFiles\main.dir\src\Renderer.cpp.obj -c D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\src\Renderer.cpp
-
-CMakeFiles/main.dir/src/Renderer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/Renderer.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\src\Renderer.cpp > CMakeFiles\main.dir\src\Renderer.cpp.i
-
-CMakeFiles/main.dir/src/Renderer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/Renderer.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\src\Renderer.cpp -o CMakeFiles\main.dir\src\Renderer.cpp.s
-
 CMakeFiles/main.dir/src/callbacks.cpp.obj: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/callbacks.cpp.obj: CMakeFiles/main.dir/includes_CXX.rsp
 CMakeFiles/main.dir/src/callbacks.cpp.obj: D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/callbacks.cpp
 CMakeFiles/main.dir/src/callbacks.cpp.obj: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/src/callbacks.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/src/callbacks.cpp.obj"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/callbacks.cpp.obj -MF CMakeFiles\main.dir\src\callbacks.cpp.obj.d -o CMakeFiles\main.dir\src\callbacks.cpp.obj -c D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\src\callbacks.cpp
 
 CMakeFiles/main.dir/src/callbacks.cpp.i: cmake_force
@@ -105,7 +90,7 @@ CMakeFiles/main.dir/src/glad.c.obj: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/glad.c.obj: CMakeFiles/main.dir/includes_C.rsp
 CMakeFiles/main.dir/src/glad.c.obj: D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/glad.c
 CMakeFiles/main.dir/src/glad.c.obj: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/main.dir/src/glad.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/main.dir/src/glad.c.obj"
 	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/src/glad.c.obj -MF CMakeFiles\main.dir\src\glad.c.obj.d -o CMakeFiles\main.dir\src\glad.c.obj -c D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\src\glad.c
 
 CMakeFiles/main.dir/src/glad.c.i: cmake_force
@@ -120,7 +105,7 @@ CMakeFiles/main.dir/src/global.cpp.obj: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/global.cpp.obj: CMakeFiles/main.dir/includes_CXX.rsp
 CMakeFiles/main.dir/src/global.cpp.obj: D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/global.cpp
 CMakeFiles/main.dir/src/global.cpp.obj: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main.dir/src/global.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main.dir/src/global.cpp.obj"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/global.cpp.obj -MF CMakeFiles\main.dir\src\global.cpp.obj.d -o CMakeFiles\main.dir\src\global.cpp.obj -c D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\src\global.cpp
 
 CMakeFiles/main.dir/src/global.cpp.i: cmake_force
@@ -135,7 +120,7 @@ CMakeFiles/main.dir/src/main.cpp.obj: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/main.cpp.obj: CMakeFiles/main.dir/includes_CXX.rsp
 CMakeFiles/main.dir/src/main.cpp.obj: D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/main.cpp
 CMakeFiles/main.dir/src/main.cpp.obj: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main.dir/src/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main.dir/src/main.cpp.obj"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/main.cpp.obj -MF CMakeFiles\main.dir\src\main.cpp.obj.d -o CMakeFiles\main.dir\src\main.cpp.obj -c D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\src\main.cpp
 
 CMakeFiles/main.dir/src/main.cpp.i: cmake_force
@@ -150,7 +135,7 @@ CMakeFiles/main.dir/src/matrices.cpp.obj: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/matrices.cpp.obj: CMakeFiles/main.dir/includes_CXX.rsp
 CMakeFiles/main.dir/src/matrices.cpp.obj: D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/matrices.cpp
 CMakeFiles/main.dir/src/matrices.cpp.obj: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/main.dir/src/matrices.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main.dir/src/matrices.cpp.obj"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/matrices.cpp.obj -MF CMakeFiles\main.dir\src\matrices.cpp.obj.d -o CMakeFiles\main.dir\src\matrices.cpp.obj -c D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\src\matrices.cpp
 
 CMakeFiles/main.dir/src/matrices.cpp.i: cmake_force
@@ -165,7 +150,7 @@ CMakeFiles/main.dir/src/matrixstack.cpp.obj: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/matrixstack.cpp.obj: CMakeFiles/main.dir/includes_CXX.rsp
 CMakeFiles/main.dir/src/matrixstack.cpp.obj: D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/matrixstack.cpp
 CMakeFiles/main.dir/src/matrixstack.cpp.obj: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/main.dir/src/matrixstack.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/main.dir/src/matrixstack.cpp.obj"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/matrixstack.cpp.obj -MF CMakeFiles\main.dir\src\matrixstack.cpp.obj.d -o CMakeFiles\main.dir\src\matrixstack.cpp.obj -c D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\src\matrixstack.cpp
 
 CMakeFiles/main.dir/src/matrixstack.cpp.i: cmake_force
@@ -180,7 +165,7 @@ CMakeFiles/main.dir/src/objmodel.cpp.obj: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/objmodel.cpp.obj: CMakeFiles/main.dir/includes_CXX.rsp
 CMakeFiles/main.dir/src/objmodel.cpp.obj: D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/objmodel.cpp
 CMakeFiles/main.dir/src/objmodel.cpp.obj: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/main.dir/src/objmodel.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/main.dir/src/objmodel.cpp.obj"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/objmodel.cpp.obj -MF CMakeFiles\main.dir\src\objmodel.cpp.obj.d -o CMakeFiles\main.dir\src\objmodel.cpp.obj -c D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\src\objmodel.cpp
 
 CMakeFiles/main.dir/src/objmodel.cpp.i: cmake_force
@@ -190,6 +175,21 @@ CMakeFiles/main.dir/src/objmodel.cpp.i: cmake_force
 CMakeFiles/main.dir/src/objmodel.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/objmodel.cpp.s"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\src\objmodel.cpp -o CMakeFiles\main.dir\src\objmodel.cpp.s
+
+CMakeFiles/main.dir/src/renderer.cpp.obj: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/renderer.cpp.obj: CMakeFiles/main.dir/includes_CXX.rsp
+CMakeFiles/main.dir/src/renderer.cpp.obj: D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/renderer.cpp
+CMakeFiles/main.dir/src/renderer.cpp.obj: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/main.dir/src/renderer.cpp.obj"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/renderer.cpp.obj -MF CMakeFiles\main.dir\src\renderer.cpp.obj.d -o CMakeFiles\main.dir\src\renderer.cpp.obj -c D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\src\renderer.cpp
+
+CMakeFiles/main.dir/src/renderer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/renderer.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\src\renderer.cpp > CMakeFiles\main.dir\src\renderer.cpp.i
+
+CMakeFiles/main.dir/src/renderer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/renderer.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\user\Documents\UFRGS\TrabFinalFCG\trabalho_final_FCG\src\renderer.cpp -o CMakeFiles\main.dir\src\renderer.cpp.s
 
 CMakeFiles/main.dir/src/scene.cpp.obj: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/scene.cpp.obj: CMakeFiles/main.dir/includes_CXX.rsp
@@ -253,7 +253,6 @@ CMakeFiles/main.dir/src/tiny_obj_loader.cpp.s: cmake_force
 
 # Object files for target main
 main_OBJECTS = \
-"CMakeFiles/main.dir/src/Renderer.cpp.obj" \
 "CMakeFiles/main.dir/src/callbacks.cpp.obj" \
 "CMakeFiles/main.dir/src/glad.c.obj" \
 "CMakeFiles/main.dir/src/global.cpp.obj" \
@@ -261,6 +260,7 @@ main_OBJECTS = \
 "CMakeFiles/main.dir/src/matrices.cpp.obj" \
 "CMakeFiles/main.dir/src/matrixstack.cpp.obj" \
 "CMakeFiles/main.dir/src/objmodel.cpp.obj" \
+"CMakeFiles/main.dir/src/renderer.cpp.obj" \
 "CMakeFiles/main.dir/src/scene.cpp.obj" \
 "CMakeFiles/main.dir/src/shaders.cpp.obj" \
 "CMakeFiles/main.dir/src/textrendering.cpp.obj" \
@@ -269,7 +269,6 @@ main_OBJECTS = \
 # External object files for target main
 main_EXTERNAL_OBJECTS =
 
-D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/bin/Debug/main.exe: CMakeFiles/main.dir/src/Renderer.cpp.obj
 D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/bin/Debug/main.exe: CMakeFiles/main.dir/src/callbacks.cpp.obj
 D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/bin/Debug/main.exe: CMakeFiles/main.dir/src/glad.c.obj
 D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/bin/Debug/main.exe: CMakeFiles/main.dir/src/global.cpp.obj
@@ -277,6 +276,7 @@ D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/bin/Debug/main.exe: CMak
 D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/bin/Debug/main.exe: CMakeFiles/main.dir/src/matrices.cpp.obj
 D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/bin/Debug/main.exe: CMakeFiles/main.dir/src/matrixstack.cpp.obj
 D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/bin/Debug/main.exe: CMakeFiles/main.dir/src/objmodel.cpp.obj
+D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/bin/Debug/main.exe: CMakeFiles/main.dir/src/renderer.cpp.obj
 D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/bin/Debug/main.exe: CMakeFiles/main.dir/src/scene.cpp.obj
 D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/bin/Debug/main.exe: CMakeFiles/main.dir/src/shaders.cpp.obj
 D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/bin/Debug/main.exe: CMakeFiles/main.dir/src/textrendering.cpp.obj

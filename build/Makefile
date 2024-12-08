@@ -128,30 +128,6 @@ main/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
-src/Renderer.obj: src/Renderer.cpp.obj
-.PHONY : src/Renderer.obj
-
-# target to build an object file
-src/Renderer.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/Renderer.cpp.obj
-.PHONY : src/Renderer.cpp.obj
-
-src/Renderer.i: src/Renderer.cpp.i
-.PHONY : src/Renderer.i
-
-# target to preprocess a source file
-src/Renderer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/Renderer.cpp.i
-.PHONY : src/Renderer.cpp.i
-
-src/Renderer.s: src/Renderer.cpp.s
-.PHONY : src/Renderer.s
-
-# target to generate assembly for a file
-src/Renderer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/Renderer.cpp.s
-.PHONY : src/Renderer.cpp.s
-
 src/callbacks.obj: src/callbacks.cpp.obj
 .PHONY : src/callbacks.obj
 
@@ -320,6 +296,30 @@ src/objmodel.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/objmodel.cpp.s
 .PHONY : src/objmodel.cpp.s
 
+src/renderer.obj: src/renderer.cpp.obj
+.PHONY : src/renderer.obj
+
+# target to build an object file
+src/renderer.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/renderer.cpp.obj
+.PHONY : src/renderer.cpp.obj
+
+src/renderer.i: src/renderer.cpp.i
+.PHONY : src/renderer.i
+
+# target to preprocess a source file
+src/renderer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/renderer.cpp.i
+.PHONY : src/renderer.cpp.i
+
+src/renderer.s: src/renderer.cpp.s
+.PHONY : src/renderer.s
+
+# target to generate assembly for a file
+src/renderer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/renderer.cpp.s
+.PHONY : src/renderer.cpp.s
+
 src/scene.obj: src/scene.cpp.obj
 .PHONY : src/scene.obj
 
@@ -425,9 +425,6 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... main
-	@echo ... src/Renderer.obj
-	@echo ... src/Renderer.i
-	@echo ... src/Renderer.s
 	@echo ... src/callbacks.obj
 	@echo ... src/callbacks.i
 	@echo ... src/callbacks.s
@@ -449,6 +446,9 @@ help:
 	@echo ... src/objmodel.obj
 	@echo ... src/objmodel.i
 	@echo ... src/objmodel.s
+	@echo ... src/renderer.obj
+	@echo ... src/renderer.i
+	@echo ... src/renderer.s
 	@echo ... src/scene.obj
 	@echo ... src/scene.i
 	@echo ... src/scene.s

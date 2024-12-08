@@ -1,6 +1,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include "global.h"
+#include <glm/trigonometric.hpp>
 
 // Definition of global variables
 std::map<std::string, SceneObject> g_VirtualScene;
@@ -15,9 +16,9 @@ bool g_LeftMouseButtonPressed = false;
 bool g_RightMouseButtonPressed = false;
 bool g_MiddleMouseButtonPressed = false;
 
-float g_CameraTheta = 0.0f;
-float g_CameraPhi = 0.0f;
-float g_CameraDistance = 3.5f;
+float g_CameraTheta = glm::radians(0.0f);
+float g_CameraPhi = glm::radians(0.0f);
+float g_CameraDistance = 8.0f;
 
 float g_ForearmAngleZ = 0.0f;
 float g_ForearmAngleX = 0.0f;
@@ -43,4 +44,5 @@ glm::vec3 g_BunnyPosition(1.0f, 0.0f, 0.0f);
 float g_BunnySpeed = 0.05f;
 float g_CameraHeight = 1.0f;
 
-double g_LastCursorPosX, g_LastCursorPosY;
+double g_LastCursorPosX = 0;
+double g_LastCursorPosY = 0;

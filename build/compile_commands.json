@@ -1,12 +1,6 @@
 [
 {
   "directory": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/build",
-  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/main.dir/includes_CXX.rsp -g -std=c++11 -o CMakeFiles\\main.dir\\src\\Renderer.cpp.obj -c D:\\user\\Documents\\UFRGS\\TrabFinalFCG\\trabalho_final_FCG\\src\\Renderer.cpp",
-  "file": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/Renderer.cpp",
-  "output": "CMakeFiles/main.dir/src/Renderer.cpp.obj"
-},
-{
-  "directory": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/build",
   "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/main.dir/includes_CXX.rsp -g -std=c++11 -o CMakeFiles\\main.dir\\src\\callbacks.cpp.obj -c D:\\user\\Documents\\UFRGS\\TrabFinalFCG\\trabalho_final_FCG\\src\\callbacks.cpp",
   "file": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/callbacks.cpp",
   "output": "CMakeFiles/main.dir/src/callbacks.cpp.obj"
@@ -46,6 +40,12 @@
   "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/main.dir/includes_CXX.rsp -g -std=c++11 -o CMakeFiles\\main.dir\\src\\objmodel.cpp.obj -c D:\\user\\Documents\\UFRGS\\TrabFinalFCG\\trabalho_final_FCG\\src\\objmodel.cpp",
   "file": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/objmodel.cpp",
   "output": "CMakeFiles/main.dir/src/objmodel.cpp.obj"
+},
+{
+  "directory": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/main.dir/includes_CXX.rsp -g -std=c++11 -o CMakeFiles\\main.dir\\src\\renderer.cpp.obj -c D:\\user\\Documents\\UFRGS\\TrabFinalFCG\\trabalho_final_FCG\\src\\renderer.cpp",
+  "file": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/renderer.cpp",
+  "output": "CMakeFiles/main.dir/src/renderer.cpp.obj"
 },
 {
   "directory": "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/build",

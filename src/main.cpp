@@ -78,6 +78,8 @@ int main(int argc, char *argv[])
     }
     
     SetCallbacks(window);
+    // Define o ângulo incial da câmera para ser o mesmo que o do cursor.
+    glfwGetCursorPos(window, &g_LastCursorPosX, &g_LastCursorPosY);
 
     // Indicamos que as chamadas OpenGL deverão renderizar nesta janela
     glfwMakeContextCurrent(window);
