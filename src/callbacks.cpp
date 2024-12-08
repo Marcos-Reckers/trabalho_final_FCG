@@ -1,10 +1,17 @@
 // Headers das bibliotecas OpenGL
-//#include <glad/glad.h>  // Criação de contexto OpenGL 3.3
-//#include <GLFW/glfw3.h> // Criação de janelas do sistema operacional
+#include <glad/glad.h>  // Criação de contexto OpenGL 3.3
+#include <GLFW/glfw3.h> // Criação de janelas do sistema operacional
 
 #include "shaders.h"
 #include "global.h"
 #include "callbacks.h"
+
+void SetCallbacks(GLFWwindow *window) {
+    glfwSetKeyCallback(window, KeyCallback);
+    glfwSetMouseButtonCallback(window, MouseButtonCallback);
+    glfwSetCursorPosCallback(window, CursorPosCallback);
+    glfwSetScrollCallback(window, ScrollCallback);
+}
 
 // Definição da função que será chamada sempre que a janela do sistema
 // operacional for redimensionada, por consequência alterando o tamanho do

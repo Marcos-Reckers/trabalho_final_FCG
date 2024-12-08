@@ -17,7 +17,6 @@ struct SceneObject
 };
 
 // Funções relacionadas à cena
-void BuildTrianglesAndAddToVirtualScene(ObjModel *model);
-void DrawVirtualObject(const char *object_name);
+void LoadModels(int argc, char *argv[]);
 
 #endif

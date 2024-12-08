@@ -1,6 +1,8 @@
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 #include "global.h"
 
-// Definição das variáveis globais
+// Definition of global variables
 std::map<std::string, SceneObject> g_VirtualScene;
 std::stack<glm::mat4> g_MatrixStack;
 

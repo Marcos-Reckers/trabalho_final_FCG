@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/main.dir/src/Renderer.cpp.obj"
+  "CMakeFiles/main.dir/src/Renderer.cpp.obj.d"
   "CMakeFiles/main.dir/src/callbacks.cpp.obj"
   "CMakeFiles/main.dir/src/callbacks.cpp.obj.d"
   "CMakeFiles/main.dir/src/glad.c.obj"
@@ -9,6 +11,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/main.dir/src/main.cpp.obj.d"
   "CMakeFiles/main.dir/src/matrices.cpp.obj"
   "CMakeFiles/main.dir/src/matrices.cpp.obj.d"
+  "CMakeFiles/main.dir/src/matrixstack.cpp.obj"
+  "CMakeFiles/main.dir/src/matrixstack.cpp.obj.d"
   "CMakeFiles/main.dir/src/objmodel.cpp.obj"
   "CMakeFiles/main.dir/src/objmodel.cpp.obj.d"
   "CMakeFiles/main.dir/src/scene.cpp.obj"

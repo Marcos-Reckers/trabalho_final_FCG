@@ -128,6 +128,30 @@ main/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
+src/Renderer.obj: src/Renderer.cpp.obj
+.PHONY : src/Renderer.obj
+
+# target to build an object file
+src/Renderer.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/Renderer.cpp.obj
+.PHONY : src/Renderer.cpp.obj
+
+src/Renderer.i: src/Renderer.cpp.i
+.PHONY : src/Renderer.i
+
+# target to preprocess a source file
+src/Renderer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/Renderer.cpp.i
+.PHONY : src/Renderer.cpp.i
+
+src/Renderer.s: src/Renderer.cpp.s
+.PHONY : src/Renderer.s
+
+# target to generate assembly for a file
+src/Renderer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/Renderer.cpp.s
+.PHONY : src/Renderer.cpp.s
+
 src/callbacks.obj: src/callbacks.cpp.obj
 .PHONY : src/callbacks.obj
 
@@ -247,6 +271,30 @@ src/matrices.s: src/matrices.cpp.s
 src/matrices.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/matrices.cpp.s
 .PHONY : src/matrices.cpp.s
+
+src/matrixstack.obj: src/matrixstack.cpp.obj
+.PHONY : src/matrixstack.obj
+
+# target to build an object file
+src/matrixstack.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/matrixstack.cpp.obj
+.PHONY : src/matrixstack.cpp.obj
+
+src/matrixstack.i: src/matrixstack.cpp.i
+.PHONY : src/matrixstack.i
+
+# target to preprocess a source file
+src/matrixstack.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/matrixstack.cpp.i
+.PHONY : src/matrixstack.cpp.i
+
+src/matrixstack.s: src/matrixstack.cpp.s
+.PHONY : src/matrixstack.s
+
+# target to generate assembly for a file
+src/matrixstack.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/matrixstack.cpp.s
+.PHONY : src/matrixstack.cpp.s
 
 src/objmodel.obj: src/objmodel.cpp.obj
 .PHONY : src/objmodel.obj
@@ -377,6 +425,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... main
+	@echo ... src/Renderer.obj
+	@echo ... src/Renderer.i
+	@echo ... src/Renderer.s
 	@echo ... src/callbacks.obj
 	@echo ... src/callbacks.i
 	@echo ... src/callbacks.s
@@ -392,6 +443,9 @@ help:
 	@echo ... src/matrices.obj
 	@echo ... src/matrices.i
 	@echo ... src/matrices.s
+	@echo ... src/matrixstack.obj
+	@echo ... src/matrixstack.i
+	@echo ... src/matrixstack.s
 	@echo ... src/objmodel.obj
 	@echo ... src/objmodel.i
 	@echo ... src/objmodel.s

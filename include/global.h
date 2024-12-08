@@ -3,11 +3,12 @@
 
 #include <map>
 #include <stack>
-#include <GLFW/glfw3.h> 
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 #include <glm/mat4x4.hpp>
 #include "scene.h"
 
-// Declaração de variáveis globais com `extern`
+// Declaration of global variables
 extern std::map<std::string, SceneObject> g_VirtualScene;
 extern std::stack<glm::mat4> g_MatrixStack;
 
@@ -48,9 +49,6 @@ extern glm::vec3 g_BunnyPosition;
 extern float g_BunnySpeed;
 extern float g_CameraHeight;
 
-// Variáveis globais que armazenam a última posição do cursor do mouse, para
-// que possamos calcular quanto que o mouse se movimentou entre dois instantes
-// de tempo. Utilizadas no callback CursorPosCallback() abaixo.
 extern double g_LastCursorPosX, g_LastCursorPosY;
 
 #endif // GLOBAL_H

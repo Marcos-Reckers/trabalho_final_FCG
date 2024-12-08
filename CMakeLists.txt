@@ -3,25 +3,24 @@
 # com algumas modificações vindas do arquivo CMakeLists.txt criado
 # pelos alunos Luis Melo e Santiago Gonzaga em 2023/1.
 
-# Arquivos fonte C/C++. Inclua nesta lista todos os arquivos que devem
-# ser compilados.
-set(SOURCES
-  src/main.cpp
-  src/textrendering.cpp
-  src/tiny_obj_loader.cpp
-  src/glad.c
-)
-
 cmake_minimum_required(VERSION 3.5.0)
 
 project(LAB_FCG VERSION 1.0.0)
 
-set(CMAKE_CXX_STANDARD          11)
+# Set C++ standard
+set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS        OFF)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
+# Include directories
+include_directories(${PROJECT_SOURCE_DIR}/include)
+
+# Automatically include all source files in the src directory
+file(GLOB SOURCES "src/*.cpp" "src/*.c")
+
+# Set output directories
 if(WIN32)
-  set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG   "${PROJECT_SOURCE_DIR}/bin/Debug")
+  set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG "${PROJECT_SOURCE_DIR}/bin/Debug")
   set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE "${PROJECT_SOURCE_DIR}/bin/Release")
 elseif(UNIX)
   set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin/Linux")
@@ -45,14 +44,13 @@ set(EXECUTABLE_NAME main)
 # Verifica se todos os arquivos fonte estão presentes no diretório
 # atual. Se não estão, avisa sobre CMakeLists mal configurado.
 foreach(source_file IN LISTS SOURCES)
-  if(NOT EXISTS ${PROJECT_SOURCE_DIR}/${source_file})
-    message(FATAL_ERROR "
-O arquivo ${PROJECT_SOURCE_DIR}/${source_file} não existe.
-Por favor, atualize a lista de arquivos fonte no arquivo CMakeLists.txt.")
+  if(NOT EXISTS ${source_file})
+    message(FATAL_ERROR "O arquivo ${source_file} não existe.")
     break()
   endif()
 endforeach()
 
+# Add the executable
 add_executable(${EXECUTABLE_NAME} ${SOURCES})
 
 target_include_directories(${EXECUTABLE_NAME} BEFORE PRIVATE ${PROJECT_SOURCE_DIR}/include)

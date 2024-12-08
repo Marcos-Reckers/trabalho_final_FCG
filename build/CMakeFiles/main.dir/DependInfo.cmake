@@ -9,10 +9,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/glad.c" "CMakeFiles/main.dir/src/glad.c.obj" "gcc" "CMakeFiles/main.dir/src/glad.c.obj.d"
+  "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/Renderer.cpp" "CMakeFiles/main.dir/src/Renderer.cpp.obj" "gcc" "CMakeFiles/main.dir/src/Renderer.cpp.obj.d"
   "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/callbacks.cpp" "CMakeFiles/main.dir/src/callbacks.cpp.obj" "gcc" "CMakeFiles/main.dir/src/callbacks.cpp.obj.d"
   "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/global.cpp" "CMakeFiles/main.dir/src/global.cpp.obj" "gcc" "CMakeFiles/main.dir/src/global.cpp.obj.d"
   "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/main.cpp" "CMakeFiles/main.dir/src/main.cpp.obj" "gcc" "CMakeFiles/main.dir/src/main.cpp.obj.d"
   "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/matrices.cpp" "CMakeFiles/main.dir/src/matrices.cpp.obj" "gcc" "CMakeFiles/main.dir/src/matrices.cpp.obj.d"
+  "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/matrixstack.cpp" "CMakeFiles/main.dir/src/matrixstack.cpp.obj" "gcc" "CMakeFiles/main.dir/src/matrixstack.cpp.obj.d"
   "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/objmodel.cpp" "CMakeFiles/main.dir/src/objmodel.cpp.obj" "gcc" "CMakeFiles/main.dir/src/objmodel.cpp.obj.d"
   "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/scene.cpp" "CMakeFiles/main.dir/src/scene.cpp.obj" "gcc" "CMakeFiles/main.dir/src/scene.cpp.obj.d"
   "D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/src/shaders.cpp" "CMakeFiles/main.dir/src/shaders.cpp.obj" "gcc" "CMakeFiles/main.dir/src/shaders.cpp.obj.d"
