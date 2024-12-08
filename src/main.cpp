@@ -1,7 +1,4 @@
 #include <cmath>
-#ifndef M_PI
-#define M_PI 3.14159265358979323846
-#endif
 #include <cstdio>
 #include <cstdlib>
 
@@ -146,46 +143,21 @@ int main(int argc, char *argv[])
 
         UpdateCamera();
 
-        #define WALL 0
-        #define PLAYER 1
-        #define PLANE 2
-
         g_PlayerPosition.y = 1.0f; // Mantém o jogador no chão
 
         glm::mat4 model = Matrix_Identity(); // Transformação identidade de modelagem
 
         // Desenhamos o modelo do jogador
-        model = glm::translate(glm::mat4(1.0f), g_PlayerPosition) * g_PlayerRotation;
-        glUniformMatrix4fv(g_model_uniform, 1, GL_FALSE, glm::value_ptr(model));
-        glUniform1i(g_object_id_uniform, PLAYER);
-        DrawVirtualObject("the_player");
+        DrawPlayer();
 
         // Desenhamos o modelo do plano (chão)
-        model = Matrix_Scale(40.0, 1.0, 40.0) * Matrix_Translate(0.0f, -1.0f, 0.0f) * Matrix_Rotate_Z(g_AngleZ) * Matrix_Rotate_Y(g_AngleY) * Matrix_Rotate_X(g_AngleX);
-        glUniformMatrix4fv(g_model_uniform, 1, GL_FALSE, glm::value_ptr(model));
-        glUniform1i(g_object_id_uniform, PLANE);
-        DrawVirtualObject("the_plane");
+        DrawPlane();
 
-        // Desenhamos o modelo da parede
-        model = Matrix_Scale(1.0, 20.0, 50.0) * Matrix_Translate(32.0f, 0.5f, 0.0f) * Matrix_Rotate_Z(g_AngleZ) * Matrix_Rotate_Y(g_AngleY) * Matrix_Rotate_X(g_AngleX);
-        glUniformMatrix4fv(g_model_uniform, 1, GL_FALSE, glm::value_ptr(model));
-        glUniform1i(g_object_id_uniform, WALL);
-        DrawVirtualObject("the_wall");
-        // Desenhamos o modelo da parede
-        model = Matrix_Scale(1.0, 20.0, 50.0) * Matrix_Translate(-32.0f, 0.5f, 0.0f) * Matrix_Rotate_Z(g_AngleZ) * Matrix_Rotate_Y(-M_PI) * Matrix_Rotate_X(g_AngleX);
-        glUniformMatrix4fv(g_model_uniform, 1, GL_FALSE, glm::value_ptr(model));
-        glUniform1i(g_object_id_uniform, WALL);
-        DrawVirtualObject("the_wall");
-        // Desenhamos o modelo da parede
-        model = Matrix_Scale(50.0, 20.0, 1.0) * Matrix_Translate(0.0f, 0.5f, 35.0f) * Matrix_Rotate_Z(g_AngleZ) * Matrix_Rotate_Y(-M_PI / 2) * Matrix_Rotate_X(g_AngleX);
-        glUniformMatrix4fv(g_model_uniform, 1, GL_FALSE, glm::value_ptr(model));
-        glUniform1i(g_object_id_uniform, WALL);
-        DrawVirtualObject("the_wall");
-        // Desenhamos o modelo da parede
-        model = Matrix_Scale(50.0, 20.0, 1.0) * Matrix_Translate(0.0f, 0.5f, -35.0f) * Matrix_Rotate_Z(g_AngleZ) * Matrix_Rotate_Y(M_PI / 2) * Matrix_Rotate_X(g_AngleX);
-        glUniformMatrix4fv(g_model_uniform, 1, GL_FALSE, glm::value_ptr(model));
-        glUniform1i(g_object_id_uniform, WALL);
-        DrawVirtualObject("the_wall");
+        // Desenhamos os modelos das paredes
+        DrawWallL();
+        DrawWallR();
+        DrawWallU();
+        DrawWallD();
 
         // Imprimimos na tela informação sobre o número de quadros renderizados
         // por segundo (frames per second).

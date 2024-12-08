@@ -1993,10 +1993,21 @@ CMakeFiles/main.dir/src/renderer.cpp.obj: D:/user/Documents/UFRGS/TrabFinalFCG/t
   D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/include/GLFW/glfw3.h \
   D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/include/KHR/khrplatform.h \
   D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/include/glad/glad.h \
+  D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/include/glm/detail/_fixes.hpp \
+  D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/include/glm/detail/func_integer.inl \
+  D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/include/glm/detail/func_packing.inl \
+  D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/include/glm/detail/setup.hpp \
+  D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/include/glm/detail/type_half.hpp \
+  D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/include/glm/detail/type_half.inl \
+  D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/include/glm/fwd.hpp \
+  D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/include/glm/glm.hpp \
   D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/include/glm/gtc/type_ptr.hpp \
   D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/include/glm/gtc/type_ptr.inl \
+  D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/include/glm/integer.hpp \
   D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/include/glm/mat4x4.hpp \
+  D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/include/glm/packing.hpp \
   D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/include/global.h \
+  D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/include/matrices.h \
   D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/include/objmodel.h \
   D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/include/renderer.h \
   D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/include/scene.h \
@@ -2009,6 +2020,8 @@ CMakeFiles/main.dir/src/renderer.cpp.obj: D:/user/Documents/UFRGS/TrabFinalFCG/t
   C:/MinGW/include/dbt.h \
   C:/MinGW/include/errno.h \
   C:/MinGW/include/features.h \
+  C:/MinGW/include/float.h \
+  C:/MinGW/include/limits.h \
   C:/MinGW/include/locale.h \
   C:/MinGW/include/math.h \
   C:/MinGW/include/msvcrtver.h \
@@ -2091,6 +2104,8 @@ CMakeFiles/main.dir/src/renderer.cpp.obj: D:/user/Documents/UFRGS/TrabFinalFCG/t
   C:/MinGW/lib/gcc/mingw32/9.2.0/include/c++/cassert \
   C:/MinGW/lib/gcc/mingw32/9.2.0/include/c++/cctype \
   C:/MinGW/lib/gcc/mingw32/9.2.0/include/c++/cerrno \
+  C:/MinGW/lib/gcc/mingw32/9.2.0/include/c++/cfloat \
+  C:/MinGW/lib/gcc/mingw32/9.2.0/include/c++/climits \
   C:/MinGW/lib/gcc/mingw32/9.2.0/include/c++/clocale \
   C:/MinGW/lib/gcc/mingw32/9.2.0/include/c++/cmath \
   C:/MinGW/lib/gcc/mingw32/9.2.0/include/c++/cstddef \
@@ -2131,6 +2146,7 @@ CMakeFiles/main.dir/src/renderer.cpp.obj: D:/user/Documents/UFRGS/TrabFinalFCG/t
   C:/MinGW/lib/gcc/mingw32/9.2.0/include/c++/typeinfo \
   C:/MinGW/lib/gcc/mingw32/9.2.0/include/c++/utility \
   C:/MinGW/lib/gcc/mingw32/9.2.0/include/c++/vector \
+  C:/MinGW/lib/gcc/mingw32/9.2.0/include/float.h \
   C:/MinGW/lib/gcc/mingw32/9.2.0/include/stdarg.h \
   C:/MinGW/lib/gcc/mingw32/9.2.0/include/stddef.h \
   C:/MinGW/lib/gcc/mingw32/9.2.0/include/stdint.h \

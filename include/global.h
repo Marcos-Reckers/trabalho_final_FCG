@@ -8,7 +8,15 @@
 #include <glm/mat4x4.hpp>
 #include "scene.h"
 
-// Declaration of global variables
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
+
+#define WALL 0
+#define PLAYER 1
+#define PLANE 2
+
+// Definição de variáveis globais
 extern std::map<std::string, SceneObject> g_VirtualScene;
 extern std::stack<glm::mat4> g_MatrixStack;
 

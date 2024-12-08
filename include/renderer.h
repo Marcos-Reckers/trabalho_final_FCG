@@ -16,14 +16,19 @@ void ClearBuffers();
 // Function to send the "view" and "projection" matrices to the GPU
 void SendMatricesToGPU(const glm::mat4& view, const glm::mat4& projection, const glm::mat4& model); 
 
-// Render a specific model with its transformation and object ID
+// Renderiza um modelo específico com sua transformação e ID de objeto
 void RenderModel(const char* model_name, const glm::mat4& model_matrix, int object_id);
 
 // Função que desenha um objeto armazenado em g_VirtualScene.
 void DrawVirtualObject(const char *object_name);
 
-// Constrói triângulos para futura renderização a partir de um ObjModel.
-void BuildTrianglesAndAddToVirtualScene(ObjModel *model);
+// Funções para desenhar objetos específicos
+void DrawPlayer();
+void DrawPlane();
+void DrawWallL();
+void DrawWallR();
+void DrawWallU();
+void DrawWallD();
 
 // Utility for loading shaders
 void LoadShaders();

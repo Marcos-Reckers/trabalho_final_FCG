@@ -3,7 +3,7 @@
 #include "global.h"
 #include <glm/trigonometric.hpp>
 
-// Definition of global variables
+// Definição de variáveis globais
 std::map<std::string, SceneObject> g_VirtualScene;
 std::stack<glm::mat4> g_MatrixStack;
 

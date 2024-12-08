@@ -26,4 +26,7 @@ void ComputeNormals(ObjModel *model);
 // Função para debugging
 void PrintObjModelInfo(ObjModel *model);
 
+// Constrói triângulos para futura renderização a partir de um ObjModel.
+void BuildTrianglesAndAddToVirtualScene(ObjModel *model);
+
 #endif // OBJMODEL_H
