@@ -36,6 +36,7 @@
 #include "callbacks.h"
 #include "renderer.h"
 #include "camera.h"
+#include "enemy.h"
 #include <math.h>
 
 int main(int argc, char *argv[])
@@ -74,7 +75,7 @@ int main(int argc, char *argv[])
         fprintf(stderr, "ERROR: glfwCreateWindow() failed.\n");
         std::exit(EXIT_FAILURE);
     }
-    
+
     SetCallbacks(window);
     // Define o ângulo incial da câmera para ser o mesmo que o do cursor.
     glfwGetCursorPos(window, &g_LastCursorPosX, &g_LastCursorPosY);
@@ -119,10 +120,18 @@ int main(int argc, char *argv[])
 
     // Configuramos o modo do cursor para desabilitado
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+    float lastTime = glfwGetTime();
+
+    // Inicializamos os inimigos
+    InitializeEnemies(5);
 
     // Ficamos em um loop infinito, renderizando, até que o usuário feche a janela
     while (!glfwWindowShouldClose(window))
     {
+        float currentTime = glfwGetTime();
+        float elapsedTime = currentTime - lastTime;
+        lastTime = currentTime;
+
         // Aqui executamos as operações de renderização
 
         // Definimos a cor do "fundo" do framebuffer como branco.  Tal cor é
@@ -141,7 +150,7 @@ int main(int argc, char *argv[])
         // os shaders de vértice e fragmentos).
         glUseProgram(g_GpuProgramID);
 
-        UpdateCamera();
+        UpdateCamera(elapsedTime);
 
         g_PlayerPosition.y = 1.0f; // Mantém o jogador no chão
 
@@ -158,6 +167,13 @@ int main(int argc, char *argv[])
         DrawWallR();
         DrawWallU();
         DrawWallD();
+
+        // Atualizamos a posição dos inimigos
+        UpdateEnemies(elapsedTime, g_PlayerPosition);
+
+        // Desenhamos os inimigos
+        DrawEnemies();
+
 
         // Imprimimos na tela informação sobre o número de quadros renderizados
         // por segundo (frames per second).
