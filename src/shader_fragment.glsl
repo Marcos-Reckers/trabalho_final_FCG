@@ -13,9 +13,10 @@ uniform mat4 view;
 uniform mat4 projection;
 
 // Identificador que define qual objeto está sendo desenhado no momento
-#define SPHERE 0
-#define BUNNY  1
+#define WALL 0
+#define PLAYER  1
 #define PLANE  2
+#define ENEMY 3
 uniform int object_id;
 
 // O valor de saída ("out") de um Fragment Shader é a cor final do fragmento.
@@ -54,19 +55,17 @@ void main()
     vec3 Ka; // Refletância ambiente
     float q; // Expoente especular para o modelo de iluminação de Phong
 
-    if ( object_id == SPHERE )
+    if ( object_id == WALL )
     {
-        // PREENCHA AQUI
-        // Propriedades espectrais da esfera
+        // Propriedades espectrais da parede
         Kd = vec3(0.8,0.4,0.08);
         Ks = vec3(0.0,0.0,0.0);
         Ka = vec3(0.4,0.2,0.04);
         q = 1.0;
     }
-    else if ( object_id == BUNNY )
+    else if ( object_id == PLAYER )
     {
-        // PREENCHA AQUI
-        // Propriedades espectrais do coelho
+        // Propriedades espectrais do jogador
         Kd = vec3(0.08,0.4,0.8);
         Ks = vec3(0.8,0.8,0.8);
         Ka = vec3(0.04,0.2,0.4);
@@ -74,12 +73,19 @@ void main()
     }
     else if ( object_id == PLANE )
     {
-        // PREENCHA AQUI
         // Propriedades espectrais do plano
         Kd = vec3(0.2,0.2,0.2);
         Ks = vec3(0.3,0.3,0.3);
         Ka = vec3(0.0,0.0,0.0);
         q = 20.0;
+    }
+    else if ( object_id == ENEMY )
+    {
+        // Propriedades espectrais do inimigo
+        Kd = vec3(0.8, 0.8, 0.7); // Cor difusa pálida
+        Ks = vec3(0.3, 0.3, 0.3); // Cor especular baixa
+        Ka = vec3(0.4, 0.4, 0.35); // Cor ambiente um pouco mais escura
+        q = 10.0; // Brilho baixo
     }
     else // Objeto desconhecido = preto
     {

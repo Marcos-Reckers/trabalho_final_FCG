@@ -18,14 +18,14 @@ void DrawCube();
 // Structure to represent an enemy
 struct Enemy {
     glm::vec3 position;
-    glm::vec3 direction;
+    float rotation;
 };
 
 // Vector to store enemies
 extern std::vector<Enemy> enemies;
 
 // Function to initialize enemies with random positions
-void InitializeEnemies(int numEnemies);
+void InitializeEnemies(int numEnemies, const glm::vec3& playerPosition);
 
 // Function to update the position of enemies to follow the player
 void UpdateEnemies(float elapsedTime, const glm::vec3& g_PlayerPosition);

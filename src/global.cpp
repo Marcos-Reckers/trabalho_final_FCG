@@ -42,7 +42,7 @@ bool right = false;
 
 glm::vec3 g_PlayerPosition(1.0f, 0.0f, 0.0f);
 glm::mat4  g_PlayerRotation = glm::mat4(1.0f);
-float g_PlayerSpeed = 0.05f;
+float g_PlayerSpeed = 10.0f;
 float g_CameraHeight = 1.0f;
 
 double g_LastCursorPosX = 0;

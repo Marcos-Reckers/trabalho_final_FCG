@@ -15,6 +15,7 @@
 #define WALL 0
 #define PLAYER 1
 #define PLANE 2
+#define ENEMY 3
 
 // Definição de variáveis globais
 extern std::map<std::string, SceneObject> g_VirtualScene;

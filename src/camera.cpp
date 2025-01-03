@@ -4,16 +4,16 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-void UpdatePlayerPos(glm::vec3 horizontal_direction, glm::vec3 camera_right){
+void UpdatePlayerPos(glm::vec3 horizontal_direction, glm::vec3 camera_right, float elapsedTime){
     // Atualiza a posição do jogador com base nas teclas pressionadas
         if (front)
-            g_PlayerPosition += g_PlayerSpeed * horizontal_direction;
+            g_PlayerPosition += g_PlayerSpeed * horizontal_direction * elapsedTime;
         if (back)
-            g_PlayerPosition -= g_PlayerSpeed * horizontal_direction;
+            g_PlayerPosition -= g_PlayerSpeed * horizontal_direction * elapsedTime;
         if (left)
-            g_PlayerPosition -= g_PlayerSpeed * camera_right;
+            g_PlayerPosition -= g_PlayerSpeed * camera_right * elapsedTime;
         if (right)
-            g_PlayerPosition += g_PlayerSpeed * camera_right;
+            g_PlayerPosition += g_PlayerSpeed * camera_right * elapsedTime;
 
         // Atualiza a orientação do jogador.
         glm::vec3 player_forward = -horizontal_direction; // Direção horizontal da câmera
@@ -94,7 +94,7 @@ void UpdateCamera(float elapsedTime) {
         glm::vec3 horizontal_direction = glm::normalize(glm::vec3(camera_direction.x, 0.0f, camera_direction.z));
         glm::vec3 camera_right = glm::normalize(glm::cross(camera_direction, glm::vec3(0.0f, 1.0f, 0.0f)));
 
-        UpdatePlayerPos(horizontal_direction, camera_right);
+        UpdatePlayerPos(horizontal_direction, camera_right, elapsedTime);
         
         // Atualiza posição da camera após movimento do jogador.
         glm::vec3 camera_position = g_PlayerPosition - camera_direction * g_CameraDistance;

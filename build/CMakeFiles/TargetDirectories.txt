@@ -1,3 +1,0 @@
-C:/Users/marco/Documents/dev/trabalho_final_FCG/build/CMakeFiles/main.dir
-C:/Users/marco/Documents/dev/trabalho_final_FCG/build/CMakeFiles/edit_cache.dir
-C:/Users/marco/Documents/dev/trabalho_final_FCG/build/CMakeFiles/rebuild_cache.dir

@@ -12,9 +12,9 @@
 #include "renderer.h"
 
 void LoadModels(int argc, char *argv[]) {
-    ObjModel spheremodel("../../data/wall.obj");
-    ComputeNormals(&spheremodel);
-    BuildTrianglesAndAddToVirtualScene(&spheremodel);
+    ObjModel wallmodel("../../data/wall.obj");
+    ComputeNormals(&wallmodel);
+    BuildTrianglesAndAddToVirtualScene(&wallmodel);
 
     ObjModel playermodel("../../data/player.obj");
     ComputeNormals(&playermodel);
@@ -23,6 +23,10 @@ void LoadModels(int argc, char *argv[]) {
     ObjModel planemodel("../../data/plane.obj");
     ComputeNormals(&planemodel);
     BuildTrianglesAndAddToVirtualScene(&planemodel);
+
+    ObjModel enemymodel("../../data/enemy.obj");
+    ComputeNormals(&enemymodel);
+    BuildTrianglesAndAddToVirtualScene(&enemymodel);
 
     if (argc > 1) {
         ObjModel model(argv[1]);

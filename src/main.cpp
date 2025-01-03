@@ -123,7 +123,7 @@ int main(int argc, char *argv[])
     float lastTime = glfwGetTime();
 
     // Inicializamos os inimigos
-    InitializeEnemies(5);
+    InitializeEnemies(5, g_PlayerPosition);
 
     // Ficamos em um loop infinito, renderizando, até que o usuário feche a janela
     while (!glfwWindowShouldClose(window))
@@ -173,7 +173,6 @@ int main(int argc, char *argv[])
 
         // Desenhamos os inimigos
         DrawEnemies();
-
 
         // Imprimimos na tela informação sobre o número de quadros renderizados
         // por segundo (frames per second).
