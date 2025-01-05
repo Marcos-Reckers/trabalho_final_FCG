@@ -3,7 +3,7 @@
 #include <sstream>
 
 // Headers das bibliotecas OpenGL
-#include <glad/glad.h>  // Criação de contexto OpenGL 3.3
+#include <glad/glad.h> // Criação de contexto OpenGL 3.3
 
 // Headers locais, definidos na pasta "include/"
 #include "global.h"
@@ -49,6 +49,8 @@ void LoadShadersFromFiles()
     g_view_uniform = glGetUniformLocation(g_GpuProgramID, "view");             // Variável da matriz "view" em shader_vertex.glsl
     g_projection_uniform = glGetUniformLocation(g_GpuProgramID, "projection"); // Variável da matriz "projection" em shader_vertex.glsl
     g_object_id_uniform = glGetUniformLocation(g_GpuProgramID, "object_id");   // Variável "object_id" em shader_fragment.glsl
+    g_bbox_min_uniform = glGetUniformLocation(g_GpuProgramID, "bbox_min");
+    g_bbox_max_uniform = glGetUniformLocation(g_GpuProgramID, "bbox_max");
 }
 
 // Carrega um Vertex Shader de um arquivo GLSL. Veja definição de LoadShader() abaixo.

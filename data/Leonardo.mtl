@@ -1,0 +1,61 @@
+# exported by https://3dviewer.net
+newmtl Donatello_Mat
+Kd 1 1 1
+d 1
+Ka 0 0 0
+Ks 0 0 0
+Ns 0
+newmtl Donatello_Expressions01_Mat
+Kd 1 1 1
+d 1
+Ka 0 0 0
+Ks 0 0 0
+Ns 0
+newmtl Donatello_Expressions02_Mat
+Kd 1 1 1
+d 1
+Ka 0 0 0
+Ks 0 0 0
+Ns 0
+newmtl Donatello_Props
+Kd 1 1 1
+d 1
+Ka 0 0 0
+Ks 0 0 0
+Ns 0
+newmtl Donatello_Glider
+Kd 1 1 1
+d 1
+Ka 0 0 0
+Ks 0 0 0
+Ns 0
+newmtl Donatello_PartyWagon_Mat
+Kd 1 1 1
+d 1
+Ka 0 0 0
+Ks 0 0 0
+Ns 0
+newmtl Donatello_Shell
+Kd 1 1 1
+d 1
+Ka 0 0 0
+Ks 0 0 0
+Ns 0
+newmtl Donatello_Spawned_Props_Mat
+Kd 1 1 1
+d 1
+Ka 0 0 0
+Ks 0 0 0
+Ns 0
+newmtl Donatello_Props02_Mat
+Kd 1 1 1
+d 1
+Ka 0 0 0
+Ks 0 0 0
+Ns 0
+newmtl Donatello_Props_ManHoleCover_Mat
+Kd 1 1 1
+d 1
+Ka 0 0 0
+Ks 0 0 0
+Ns 0

@@ -14,23 +14,24 @@ void DrawCube()
     // This is a placeholder implementation
     glBegin(GL_QUADS);
     // Front face
-    glVertex3f(-0.5f, -0.5f,  0.5f);
-    glVertex3f( 0.5f, -0.5f,  0.5f);
-    glVertex3f( 0.5f,  0.5f,  0.5f);
-    glVertex3f(-0.5f,  0.5f,  0.5f);
+    glVertex3f(-0.5f, -0.5f, 0.5f);
+    glVertex3f(0.5f, -0.5f, 0.5f);
+    glVertex3f(0.5f, 0.5f, 0.5f);
+    glVertex3f(-0.5f, 0.5f, 0.5f);
     // Other faces...
     glEnd();
 }
 
 std::vector<Enemy> enemies;
 
-void InitializeEnemies(int numEnemies, const glm::vec3& playerPosition)
+void InitializeEnemies(int numEnemies, const glm::vec3 &playerPosition)
 {
     srand(static_cast<unsigned int>(time(0)));
     for (int i = 0; i < numEnemies; ++i)
     {
         Enemy enemy;
-        do {
+        do
+        {
             enemy.position = glm::vec3(
                 static_cast<float>(rand() % 60 - 30), // X posição aleatória entre -30 e 30
                 ENEMY_HEIGHT,                         // Y posição fixa no chão
@@ -40,7 +41,7 @@ void InitializeEnemies(int numEnemies, const glm::vec3& playerPosition)
         enemies.push_back(enemy);
     }
 }
-void UpdateEnemies(float elapsedTime, const glm::vec3& g_PlayerPosition)
+void UpdateEnemies(float elapsedTime, const glm::vec3 &g_PlayerPosition)
 {
     float enemySpeed = 4.0f; // Velocidade dos inimigos
     for (auto &enemy : enemies)
@@ -50,7 +51,7 @@ void UpdateEnemies(float elapsedTime, const glm::vec3& g_PlayerPosition)
         enemy.position.y = ENEMY_HEIGHT;
 
         // Calcula ângulo de rotação do inimigo para olhar para o jogador
-        enemy.rotation = -atan2(direction.z, direction.x) + glm::radians(90.0f);
+        enemy.rotation = -atan2(direction.z, direction.x) - 2.5;
     }
 }
 void DrawEnemies()
@@ -58,7 +59,6 @@ void DrawEnemies()
     for (const auto &enemy : enemies)
     {
         glm::mat4 model = Matrix_Identity();
-
         // Aplica translação e rotação ao modelo
         model = glm::translate(glm::mat4(1.0f), enemy.position);
         model = glm::rotate(model, enemy.rotation, glm::vec3(0.0f, 1.0f, 0.0f));
