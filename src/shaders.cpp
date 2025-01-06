@@ -55,6 +55,7 @@ void LoadShadersFromFiles()
     g_texture1_uniform = glGetUniformLocation(g_GpuProgramID, "TextureImage1");
     g_texture2_uniform = glGetUniformLocation(g_GpuProgramID, "TextureImage2");
     g_texture3_uniform = glGetUniformLocation(g_GpuProgramID, "TextureImage3");
+    g_texture4_uniform = glGetUniformLocation(g_GpuProgramID, "TextureImage4");
 }
 
 // Carrega um Vertex Shader de um arquivo GLSL. Veja definição de LoadShader() abaixo.

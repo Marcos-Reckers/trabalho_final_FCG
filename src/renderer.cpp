@@ -81,6 +81,20 @@ void RenderModel(const char* model_name, const glm::mat4& model_matrix, int obje
             last_texture_id = current_texture_id;
         }
     }
+    else if (object_id == BONUS)
+    {
+        if (last_texture_id != current_texture_id)
+        {
+            glActiveTexture(GL_TEXTURE4);
+            glBindTexture(GL_TEXTURE_2D, current_texture_id);
+            glUniform1i(g_texture4_uniform, 4);
+            last_texture_id = current_texture_id;
+        }
+    }
+    else
+    {
+        printf("ERRO: ID de objeto desconhecido.\n");
+    }
 
     DrawVirtualObject(model_name);
 }

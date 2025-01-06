@@ -13,6 +13,7 @@ uniform mat4 projection;
 #define PLAYER  1
 #define PLANE  2
 #define ENEMY 3
+#define BONUS 4
 uniform int object_id;
 
 uniform vec4 bbox_min;
@@ -46,16 +47,13 @@ void main()
     {
         // Projeção planar para as paredes
         float scaling = 0.9;
-        // float U = normal.x > 0.0 ? position_model.x * scaling / (bbox_max.x - bbox_min.x): position_model.z * scaling / (bbox_max.z - bbox_min.z);
-        // float V = position_model.y * scaling / (bbox_min.y - bbox_max.y);
+
         float minx = bbox_min.x;
         float maxx = bbox_max.x;
         float miny = bbox_min.y;
         float maxy = bbox_max.y;
         float minz = bbox_min.z;
         float maxz = bbox_max.z;
-        // float U = normal.x > 0.0 ? (position_model.x - minx) / (maxx - minx) : (position_model.z - minz) / (maxz - minz);
-        // float V = -position_model.y / (maxy - miny);
         float U = normal.x > 0.0 ? fract(position_model.x * scaling) : fract(position_model.z * scaling);
         float V = fract(position_model.y * scaling);
         vec2 tex_coords2 = vec2(U, V);

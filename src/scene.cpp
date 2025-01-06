@@ -28,6 +28,10 @@ void LoadModels(int argc, char *argv[]) {
     ComputeNormals(&enemymodel);
     BuildTrianglesAndAddToVirtualScene(&enemymodel);
 
+    ObjModel bonusmodel("../../data/Pizza.obj");
+    ComputeNormals(&bonusmodel);
+    BuildTrianglesAndAddToVirtualScene(&bonusmodel);
+
     if (argc > 1) {
         ObjModel model(argv[1]);
         BuildTrianglesAndAddToVirtualScene(&model);

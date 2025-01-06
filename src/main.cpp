@@ -39,10 +39,11 @@
 #include "enemy.h"
 #include <math.h>
 #include <stb_image.h>
+#include "bonus.h"
 
-void LoadTextureImage(const char *filename); // Função que carrega imagens de textura
+void LoadTextureImage(const char *filename);                                                 // Função que carrega imagens de textura
 void DrawFloor(const glm::vec3 &scale, const glm::vec3 &translate, float rotateY, int type); // Função que desenha o chão
-void DrawWall(const glm::vec3 &scale, const glm::vec3 &translate, float rotateY, int type); // Função que desenha as paredes
+void DrawWall(const glm::vec3 &scale, const glm::vec3 &translate, float rotateY, int type);  // Função que desenha as paredes
 
 int main(int argc, char *argv[])
 {
@@ -113,6 +114,7 @@ int main(int argc, char *argv[])
     LoadTextureImage("../../data/Splinter_BaseColor.png");                                       // TextureImage1
     LoadTextureImage("../../data/chao.png");                                                     // TextureImage2
     LoadTextureImage("../../data/paredes.png");                                                  // TextureImage3
+    LoadTextureImage("../../data/Pizza_Diffuse_Color.png");                                      // TextureImage5
 
     // Construímos a representação de objetos geométricos através de malhas de triângulos
     LoadModels(argc, argv);
@@ -134,6 +136,9 @@ int main(int argc, char *argv[])
 
     // Inicializamos os inimigos
     InitializeEnemies(5, g_PlayerPosition);
+
+    // Inicializamos os bônus
+    InitializeBonuses();
 
     // Ficamos em um loop infinito, renderizando, até que o usuário feche a janela
     while (!glfwWindowShouldClose(window))
@@ -181,8 +186,14 @@ int main(int argc, char *argv[])
         // Atualizamos a posição dos inimigos
         UpdateEnemies(elapsedTime, g_PlayerPosition);
 
+        // Atualizamos a posição dos bônus
+        UpdateBonuses(elapsedTime);
+
         // Desenhamos os inimigos
         DrawEnemies();
+
+        // Desenhamos os bônus
+        DrawBonuses();
 
         // Imprimimos na tela informação sobre o número de quadros renderizados
         // por segundo (frames per second).
@@ -284,11 +295,7 @@ void DrawFloor(const glm::vec3 &scale, const glm::vec3 &translate, float rotateY
 {
     static GLuint last_texture_id = 0;
     glm::mat4 model = Matrix_Identity();
-    model = Matrix_Scale(scale.x, scale.y, scale.z)
-          * Matrix_Translate(translate.x, translate.y, translate.z)
-          * Matrix_Rotate_Z(g_AngleZ)
-          * Matrix_Rotate_Y(rotateY)
-          * Matrix_Rotate_X(g_AngleX);
+    model = Matrix_Scale(scale.x, scale.y, scale.z) * Matrix_Translate(translate.x, translate.y, translate.z) * Matrix_Rotate_Z(g_AngleZ) * Matrix_Rotate_Y(rotateY) * Matrix_Rotate_X(g_AngleX);
 
     GLuint current_texture_id = g_VirtualScene["the_plane"].texture_id;
     if (last_texture_id != current_texture_id)
@@ -306,11 +313,7 @@ void DrawWall(const glm::vec3 &scale, const glm::vec3 &translate, float rotateY,
 {
     static GLuint last_texture_id = 0;
     glm::mat4 model = Matrix_Identity();
-    model = Matrix_Scale(scale.x, scale.y, scale.z)
-          * Matrix_Translate(translate.x, translate.y, translate.z)
-          * Matrix_Rotate_Z(g_AngleZ)
-          * Matrix_Rotate_Y(rotateY)
-          * Matrix_Rotate_X(g_AngleX);
+    model = Matrix_Scale(scale.x, scale.y, scale.z) * Matrix_Translate(translate.x, translate.y, translate.z) * Matrix_Rotate_Z(g_AngleZ) * Matrix_Rotate_Y(rotateY) * Matrix_Rotate_X(g_AngleX);
 
     GLuint current_texture_id = g_VirtualScene["the_wall"].texture_id;
     if (last_texture_id != current_texture_id)
