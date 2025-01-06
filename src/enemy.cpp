@@ -4,7 +4,7 @@
 #include "renderer.h"
 
 #define ENEMY 3
-#define ENEMY_HEIGHT 1.5f
+#define ENEMY_HEIGHT 1.0f
 
 // Declare the DrawCube function
 void DrawCube()
@@ -51,7 +51,7 @@ void UpdateEnemies(float elapsedTime, const glm::vec3 &g_PlayerPosition)
         enemy.position.y = ENEMY_HEIGHT;
 
         // Calcula ângulo de rotação do inimigo para olhar para o jogador
-        enemy.rotation = -atan2(direction.z, direction.x) - 2.5;
+        enemy.rotation = -atan2(direction.z, direction.x);
     }
 }
 void DrawEnemies()

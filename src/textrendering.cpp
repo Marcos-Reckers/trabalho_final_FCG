@@ -13,6 +13,15 @@
 
 GLuint CreateGpuProgram(GLuint vertex_shader_id, GLuint fragment_shader_id); // Função definida em main.cpp
 
+void glCheckErrors()
+{
+    GLenum err;
+    while ((err = glGetError()) != GL_NO_ERROR)
+    {
+        fprintf(stderr, "OpenGL error: %d\n", err);
+    }
+}
+
 const GLchar* const textvertexshader_source = ""
 "#version 330\n"
 "layout (location = 0) in vec4 position;\n"
@@ -99,30 +108,30 @@ void TextRendering_Init()
     glSamplerParameteri(sampler, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     glSamplerParameteri(sampler, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glSamplerParameteri(sampler, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glCheckError();
+    glCheckErrors();
 
     GLuint textvertexshader_id = glCreateShader(GL_VERTEX_SHADER);
     TextRendering_LoadShader(textvertexshader_source, textvertexshader_id);
-    glCheckError();
+    glCheckErrors();
 
     GLuint textfragmentshader_id = glCreateShader(GL_FRAGMENT_SHADER);
     TextRendering_LoadShader(textfragmentshader_source, textfragmentshader_id);
-    glCheckError();
+    glCheckErrors();
 
     textprogram_id = CreateGpuProgram(textvertexshader_id, textfragmentshader_id);
     glLinkProgram(textprogram_id);
-    glCheckError();
+    glCheckErrors();
 
     GLuint texttex_uniform;
     texttex_uniform = glGetUniformLocation(textprogram_id, "tex");
-    glCheckError();
+    glCheckErrors();
 
     GLuint textureunit = 31;
     glActiveTexture(GL_TEXTURE0 + textureunit);
     glBindTexture(GL_TEXTURE_2D, texttexture_id);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_R8, dejavufont.tex_width, dejavufont.tex_height, 0, GL_RED, GL_UNSIGNED_BYTE, dejavufont.tex_data);
     glBindSampler(textureunit, sampler);
-    glCheckError();
+    glCheckErrors();
 
     glBindVertexArray(textVAO);
 
@@ -130,16 +139,16 @@ void TextRendering_Init()
     glBufferData(GL_ARRAY_BUFFER, 24 * sizeof(float), NULL, GL_DYNAMIC_DRAW);
     glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, 0);
     glEnableVertexAttribArray(0);
-    glCheckError();
+    glCheckErrors();
 
     glUseProgram(textprogram_id);
     glUniform1i(texttex_uniform, textureunit);
     glUseProgram(0);
-    glCheckError();
+    glCheckErrors();
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
-    glCheckError();
+    glCheckErrors();
 }
 
 float textscale = 1.5f;

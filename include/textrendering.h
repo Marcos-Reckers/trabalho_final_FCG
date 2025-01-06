@@ -3,6 +3,7 @@
 
 // Declaração de funções auxiliares para renderizar texto dentro da janela
 // OpenGL.
+void glCheckErrors();
 void TextRendering_Init();
 float TextRendering_LineHeight(GLFWwindow *window);
 float TextRendering_CharWidth(GLFWwindow *window);
