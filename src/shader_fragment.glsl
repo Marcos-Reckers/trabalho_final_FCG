@@ -44,11 +44,26 @@ void main()
 
     if (object_id == WALL)
     {
-        Kd = vec3(0.8, 0.4, 0.08);
-        Ks = vec3(0.2, 0.2, 0.2); // Refletividade especular
-        Ka = vec3(0.5, 0.3, 0.1); // Refletividade ambiente
-        q = 10.0;
-        textureColor = texture(TextureImage3, tex_coords * 0.1).rgb;
+        // Projeção planar para as paredes
+        float scaling = 0.9;
+        // float U = normal.x > 0.0 ? position_model.x * scaling / (bbox_max.x - bbox_min.x): position_model.z * scaling / (bbox_max.z - bbox_min.z);
+        // float V = position_model.y * scaling / (bbox_min.y - bbox_max.y);
+        float minx = bbox_min.x;
+        float maxx = bbox_max.x;
+        float miny = bbox_min.y;
+        float maxy = bbox_max.y;
+        float minz = bbox_min.z;
+        float maxz = bbox_max.z;
+        // float U = normal.x > 0.0 ? (position_model.x - minx) / (maxx - minx) : (position_model.z - minz) / (maxz - minz);
+        // float V = -position_model.y / (maxy - miny);
+        float U = normal.x > 0.0 ? fract(position_model.x * scaling) : fract(position_model.z * scaling);
+        float V = fract(position_model.y * scaling);
+        vec2 tex_coords2 = vec2(U, V);
+        Kd = vec3(1.0, 1.0, 1.0); // Aumentando a refletividade difusa
+        Ks = vec3(1.0, 1.0, 1.0); // Aumentando a refletividade especular
+        Ka = vec3(0.8, 0.8, 0.8); // Aumentando a refletividade ambiente
+        q = 64.0; // Aumentando o brilho especular
+        textureColor = texture(TextureImage3, tex_coords2).rgb;
     }
     else if (object_id == PLAYER)
     {
@@ -58,25 +73,30 @@ void main()
         float maxy = bbox_max.y;
         float U = (position_model.x - minx) / (maxx - minx);
         float V = (position_model.y - miny) / (maxy - miny);
-        Kd = vec3(0.08, 0.4, 0.8);
+        Kd = vec3(1.0, 0.8, 0.8);
         Ks = vec3(0.8, 0.8, 0.8);
-        Ka = vec3(0.04, 0.2, 0.4);
+        Ka = vec3(1, 0.9, 0.9);
         q = 32.0;
         textureColor = texture(TextureImage0, tex_coords).rgb;
     }
     else if (object_id == PLANE)
     {
+        // Projeção planar para o chão
+        float scaling = 6.0;
+        float U = fract(position_model.x * scaling);
+        float V = fract(position_model.z * scaling);
+        vec2 tex_coords2 = vec2(U, V);
         Kd = vec3(0.3, 0.3, 0.3); // Refletividade difusa
         Ks = vec3(0.2, 0.2, 0.2); // Refletividade especular
-        Ka = vec3(0.2, 0.2, 0.2); // Refletividade ambiente
+        Ka = vec3(0.8, 0.8, 0.8); // Refletividade ambiente
         q = 20.0;
-        textureColor = texture(TextureImage2, tex_coords * 0.0).rgb;
+        textureColor = texture(TextureImage2, tex_coords2).rgb;
     }
     else if (object_id == ENEMY)
     {
         Kd = vec3(0.8, 0.8, 0.7);
         Ks = vec3(0.3, 0.3, 0.3);
-        Ka = vec3(0.4, 0.4, 0.35);
+        Ka = vec3(0.6, 0.6, 0.6);
         q = 10.0;
         textureColor = texture(TextureImage1, tex_coords).rgb;
     }
@@ -98,9 +118,4 @@ void main()
 
     color = vec4(finalColor, 1.0);
 
-    // Debugging output
-    // Cor vermelha indica que textura não foi aplicada
-    if (textureColor == vec3(0.0, 0.0, 0.0)) {
-        color.rgb = vec3(1.0, 0.0, 0.0); 
-    }
 }
