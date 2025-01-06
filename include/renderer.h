@@ -24,13 +24,5 @@ void DrawVirtualObject(const char *object_name);
 
 // Funções para desenhar objetos específicos
 void DrawPlayer();
-void DrawPlane();
-void DrawWallL();
-void DrawWallR();
-void DrawWallU();
-void DrawWallD();
-
-// Utility for loading shaders
-void LoadShaders();
 
 #endif // RENDERER_H

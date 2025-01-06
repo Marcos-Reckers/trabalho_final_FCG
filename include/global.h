@@ -52,6 +52,8 @@ extern GLint g_NumLoadedTextures;
 
 extern GLint g_texture0_uniform;
 extern GLint g_texture1_uniform;
+extern GLint g_texture2_uniform;
+extern GLint g_texture3_uniform;
 
 extern GLint g_bbox_min_uniform;
 extern GLint g_bbox_max_uniform;

@@ -61,38 +61,28 @@ void RenderModel(const char* model_name, const glm::mat4& model_matrix, int obje
             last_texture_id = current_texture_id;
         }
     }
+    else if (object_id == WALL)
+    {
+        if (last_texture_id != current_texture_id)
+        {
+            glActiveTexture(GL_TEXTURE3);
+            glBindTexture(GL_TEXTURE_2D, current_texture_id);
+            glUniform1i(g_texture3_uniform, 3);
+            last_texture_id = current_texture_id;
+        }
+    }
+    else if (object_id == PLANE)
+    {
+        if (last_texture_id != current_texture_id)
+        {
+            glActiveTexture(GL_TEXTURE2);
+            glBindTexture(GL_TEXTURE_2D, current_texture_id);
+            glUniform1i(g_texture2_uniform, 2);
+            last_texture_id = current_texture_id;
+        }
+    }
 
     DrawVirtualObject(model_name);
-}
-
-void DrawPlane() {
-    glm::mat4 model = Matrix_Identity();
-    model = Matrix_Scale(40.0, 1.0, 40.0) * Matrix_Translate(0.0f, -1.0f, 0.0f) * Matrix_Rotate_Z(g_AngleZ) * Matrix_Rotate_Y(g_AngleY) * Matrix_Rotate_X(g_AngleX);
-    RenderModel("the_plane", model, PLANE);
-}
-
-void DrawWallL() {
-    glm::mat4 model = Matrix_Identity();
-    model = Matrix_Scale(1.0, 20.0, 50.0) * Matrix_Translate(32.0f, 0.5f, 0.0f) * Matrix_Rotate_Z(g_AngleZ) * Matrix_Rotate_Y(g_AngleY) * Matrix_Rotate_X(g_AngleX);
-    RenderModel("the_wall", model, WALL);
-}
-
-void DrawWallR() {
-    glm::mat4 model = Matrix_Identity();
-    model = Matrix_Scale(1.0, 20.0, 50.0) * Matrix_Translate(-32.0f, 0.5f, 0.0f) * Matrix_Rotate_Z(g_AngleZ) * Matrix_Rotate_Y(-M_PI) * Matrix_Rotate_X(g_AngleX);
-    RenderModel("the_wall", model, WALL);
-}
-
-void DrawWallU() {
-    glm::mat4 model = Matrix_Identity();
-    model = Matrix_Scale(50.0, 20.0, 1.0) * Matrix_Translate(0.0f, 0.5f, 35.0f) * Matrix_Rotate_Z(g_AngleZ) * Matrix_Rotate_Y(-M_PI / 2) * Matrix_Rotate_X(g_AngleX);
-    RenderModel("the_wall", model, WALL);
-}
-
-void DrawWallD() {
-    glm::mat4 model = Matrix_Identity();
-    model = Matrix_Scale(50.0, 20.0, 1.0) * Matrix_Translate(0.0f, 0.5f, -35.0f) * Matrix_Rotate_Z(g_AngleZ) * Matrix_Rotate_Y(M_PI / 2) * Matrix_Rotate_X(g_AngleX);
-    RenderModel("the_wall", model, WALL);
 }
 
 void DrawVirtualObject(const char* object_name)

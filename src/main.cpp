@@ -40,8 +40,9 @@
 #include <math.h>
 #include <stb_image.h>
 
-
-void LoadTextureImage(const char* filename); // Função que carrega imagens de textura
+void LoadTextureImage(const char *filename); // Função que carrega imagens de textura
+void DrawFloor(const glm::vec3 &scale, const glm::vec3 &translate, float rotateY, int type); // Função que desenha o chão
+void DrawWall(const glm::vec3 &scale, const glm::vec3 &translate, float rotateY, int type); // Função que desenha as paredes
 
 int main(int argc, char *argv[])
 {
@@ -108,9 +109,10 @@ int main(int argc, char *argv[])
     //
     LoadShadersFromFiles();
     // Carregamos duas imagens para serem utilizadas como textura
-    LoadTextureImage("../../data/Donatello_Ulti_Props_Leo_BaseColor-resources.assets-7492.png");      // TextureImage0
-    LoadTextureImage("../../data/Splinter_BaseColor.png"); // TextureImage1
-
+    LoadTextureImage("../../data/Donatello_Ulti_Props_Leo_BaseColor-resources.assets-7492.png"); // TextureImage0
+    LoadTextureImage("../../data/Splinter_BaseColor.png");                                       // TextureImage1
+    LoadTextureImage("../../data/chao.png");                                                     // TextureImage2
+    LoadTextureImage("../../data/paredes.png");                                                  // TextureImage3
 
     // Construímos a representação de objetos geométricos através de malhas de triângulos
     LoadModels(argc, argv);
@@ -168,13 +170,13 @@ int main(int argc, char *argv[])
         DrawPlayer();
 
         // Desenhamos o modelo do plano (chão)
-        DrawPlane();
+        DrawFloor(glm::vec3(40.0, 1.0, 40.0), glm::vec3(0.0f, -1.0f, 0.0f), g_AngleY, PLANE);
 
         // Desenhamos os modelos das paredes
-        DrawWallL();
-        DrawWallR();
-        DrawWallU();
-        DrawWallD();
+        DrawWall(glm::vec3(1.0, 20.0, 50.0), glm::vec3(32.0f, 0.5f, 0.0f), g_AngleY, WALL);
+        DrawWall(glm::vec3(1.0, 20.0, 50.0), glm::vec3(-32.0f, 0.5f, 0.0f), -M_PI, WALL);
+        DrawWall(glm::vec3(50.0, 20.0, 1.0), glm::vec3(0.0f, 0.5f, 35.0f), -M_PI / 2, WALL);
+        DrawWall(glm::vec3(50.0, 20.0, 1.0), glm::vec3(0.0f, 0.5f, -35.0f), M_PI / 2, WALL);
 
         // Atualizamos a posição dos inimigos
         UpdateEnemies(elapsedTime, g_PlayerPosition);
@@ -210,7 +212,7 @@ int main(int argc, char *argv[])
 // set makeprg=cd\ ..\ &&\ make\ run\ >/dev/null
 // vim: set spell spelllang=pt_br :
 
-void LoadTextureImage(const char* filename)
+void LoadTextureImage(const char *filename)
 {
     printf("Carregando imagem \"%s\"... ", filename);
 
@@ -221,7 +223,7 @@ void LoadTextureImage(const char* filename)
     int channels;
     unsigned char *data = stbi_load(filename, &width, &height, &channels, 3);
 
-    if ( data == NULL )
+    if (data == NULL)
     {
         fprintf(stderr, "ERROR: Cannot open image file \"%s\".\n", filename);
         std::exit(EXIT_FAILURE);
@@ -264,10 +266,7 @@ void DrawPlayer()
 {
     static GLuint last_texture_id = 0;
     glm::mat4 model = Matrix_Identity();
-    model = Matrix_Translate(g_PlayerPosition.x, g_PlayerPosition.y, g_PlayerPosition.z)
-          * g_PlayerRotation
-          * Matrix_Translate(0.0f, -2.0f, 0.0f)
-          * Matrix_Scale(0.02f, 0.02f, 0.02f);
+    model = Matrix_Translate(g_PlayerPosition.x, g_PlayerPosition.y, g_PlayerPosition.z) * g_PlayerRotation * Matrix_Translate(0.0f, -2.0f, 0.0f) * Matrix_Scale(0.02f, 0.02f, 0.02f);
 
     GLuint current_texture_id = g_VirtualScene["the_player"].texture_id;
     if (last_texture_id != current_texture_id)
@@ -279,4 +278,48 @@ void DrawPlayer()
         printf("Textura do jogador vinculada.\n");
     }
     RenderModel("the_player", model, PLAYER);
+}
+
+void DrawFloor(const glm::vec3 &scale, const glm::vec3 &translate, float rotateY, int type)
+{
+    static GLuint last_texture_id = 0;
+    glm::mat4 model = Matrix_Identity();
+    model = Matrix_Scale(scale.x, scale.y, scale.z)
+          * Matrix_Translate(translate.x, translate.y, translate.z)
+          * Matrix_Rotate_Z(g_AngleZ)
+          * Matrix_Rotate_Y(rotateY)
+          * Matrix_Rotate_X(g_AngleX);
+
+    GLuint current_texture_id = g_VirtualScene["the_plane"].texture_id;
+    if (last_texture_id != current_texture_id)
+    {
+        glActiveTexture(GL_TEXTURE2);
+        glBindTexture(GL_TEXTURE_2D, current_texture_id);
+        glUniform1i(g_texture2_uniform, 2);
+        last_texture_id = current_texture_id;
+        printf("Textura do the_plane vinculada.\n");
+    }
+    RenderModel("the_plane", model, type);
+}
+
+void DrawWall(const glm::vec3 &scale, const glm::vec3 &translate, float rotateY, int type)
+{
+    static GLuint last_texture_id = 0;
+    glm::mat4 model = Matrix_Identity();
+    model = Matrix_Scale(scale.x, scale.y, scale.z)
+          * Matrix_Translate(translate.x, translate.y, translate.z)
+          * Matrix_Rotate_Z(g_AngleZ)
+          * Matrix_Rotate_Y(rotateY)
+          * Matrix_Rotate_X(g_AngleX);
+
+    GLuint current_texture_id = g_VirtualScene["the_wall"].texture_id;
+    if (last_texture_id != current_texture_id)
+    {
+        glActiveTexture(GL_TEXTURE3);
+        glBindTexture(GL_TEXTURE_2D, current_texture_id);
+        glUniform1i(g_texture3_uniform, 3);
+        last_texture_id = current_texture_id;
+        printf("Textura do the_wall vinculada.\n");
+    }
+    RenderModel("the_wall", model, type);
 }

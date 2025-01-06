@@ -20,11 +20,10 @@ uniform vec4 bbox_max;
 
 uniform sampler2D TextureImage0;
 uniform sampler2D TextureImage1;
+uniform sampler2D TextureImage2;
+uniform sampler2D TextureImage3;
 
 out vec4 color;
-
-#define M_PI   3.14159265358979323846
-#define M_PI_2 1.57079632679489661923
 
 void main()
 {
@@ -49,6 +48,7 @@ void main()
         Ks = vec3(0.2, 0.2, 0.2); // Refletividade especular
         Ka = vec3(0.5, 0.3, 0.1); // Refletividade ambiente
         q = 10.0;
+        textureColor = texture(TextureImage3, tex_coords * 0.1).rgb;
     }
     else if (object_id == PLAYER)
     {
@@ -70,6 +70,7 @@ void main()
         Ks = vec3(0.2, 0.2, 0.2); // Refletividade especular
         Ka = vec3(0.2, 0.2, 0.2); // Refletividade ambiente
         q = 20.0;
+        textureColor = texture(TextureImage2, tex_coords * 0.0).rgb;
     }
     else if (object_id == ENEMY)
     {

@@ -39,6 +39,8 @@ GLint g_bbox_max_uniform;
 
 GLint g_texture0_uniform;
 GLint g_texture1_uniform;
+GLint g_texture2_uniform;
+GLint g_texture3_uniform;
 
 GLint g_NumLoadedTextures = 0;
 

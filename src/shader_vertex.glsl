@@ -17,13 +17,7 @@ void main()
 {
     gl_Position = projection * view * model * model_coefficients;
     position_world = model * model_coefficients;
-    normal = inverse(transpose(model)) * normal_coefficients;
-    normal.w = 0.0;
+    normal = normal_coefficients;
+    position_model = model_coefficients.xyz;
     tex_coords = texture_coefficients;
-    position_model = vec3(model_coefficients);
-
-    // Debugging output
-    if (tex_coords == vec2(0.0, 0.0)) {
-        tex_coords = vec2(1.0, 0.0);
-    }
 }
