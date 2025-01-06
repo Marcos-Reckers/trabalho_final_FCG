@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
     // Criamos uma janela do sistema operacional, com 800 colunas e 600 linhas
     // de pixels, e com título "INF01047 ...".
     GLFWwindow *window;
-    window = glfwCreateWindow(800, 600, "INF01047 - Ninja Survival", NULL, NULL);
+    window = glfwCreateWindow(1024, 768, "INF01047 - Ninja Survival", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
@@ -93,7 +93,7 @@ int main(int argc, char *argv[])
 
     // Definimos a função de callback que será chamada sempre que a janela for redimensionada.
     glfwSetFramebufferSizeCallback(window, FramebufferSizeCallback);
-    FramebufferSizeCallback(window, 800, 600);
+    FramebufferSizeCallback(window, 1024, 768);
 
     // Imprimimos no terminal informações sobre a GPU do sistema
     const GLubyte *vendor = glGetString(GL_VENDOR);
@@ -107,7 +107,7 @@ int main(int argc, char *argv[])
     // para renderização. Veja slides 180-200 do documento Aula_03_Rendering_Pipeline_Grafico.pdf.
     //
     LoadShadersFromFiles();
-        // Carregamos duas imagens para serem utilizadas como textura
+    // Carregamos duas imagens para serem utilizadas como textura
     LoadTextureImage("../../data/Donatello_Ulti_Props_Leo_BaseColor-resources.assets-7492.png");      // TextureImage0
     LoadTextureImage("../../data/Splinter_BaseColor.png"); // TextureImage1
 
@@ -256,4 +256,27 @@ void LoadTextureImage(const char* filename)
     stbi_image_free(data);
 
     g_NumLoadedTextures += 1;
+
+    printf("Imagem \"%s\" carregada com sucesso.\n", filename);
+}
+
+void DrawPlayer()
+{
+    static GLuint last_texture_id = 0;
+    glm::mat4 model = Matrix_Identity();
+    model = Matrix_Translate(g_PlayerPosition.x, g_PlayerPosition.y, g_PlayerPosition.z)
+          * g_PlayerRotation
+          * Matrix_Translate(0.0f, -2.0f, 0.0f)
+          * Matrix_Scale(0.02f, 0.02f, 0.02f);
+
+    GLuint current_texture_id = g_VirtualScene["the_player"].texture_id;
+    if (last_texture_id != current_texture_id)
+    {
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, current_texture_id);
+        glUniform1i(g_texture0_uniform, 0);
+        last_texture_id = current_texture_id;
+        printf("Textura do jogador vinculada.\n");
+    }
+    RenderModel("the_player", model, PLAYER);
 }

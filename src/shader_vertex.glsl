@@ -21,4 +21,9 @@ void main()
     normal.w = 0.0;
     tex_coords = texture_coefficients;
     position_model = vec3(model_coefficients);
+
+    // Debugging output
+    if (tex_coords == vec2(0.0, 0.0)) {
+        tex_coords = vec2(1.0, 0.0);
+    }
 }

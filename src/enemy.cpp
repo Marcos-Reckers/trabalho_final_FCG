@@ -1,7 +1,7 @@
-
 #include "enemy.h"
 #include "matrices.h"
 #include "renderer.h"
+#include "global.h" // Inclua o arquivo global.h para acessar as variáveis globais
 
 #define ENEMY 3
 #define ENEMY_HEIGHT 1.0f
@@ -41,6 +41,7 @@ void InitializeEnemies(int numEnemies, const glm::vec3 &playerPosition)
         enemies.push_back(enemy);
     }
 }
+
 void UpdateEnemies(float elapsedTime, const glm::vec3 &g_PlayerPosition)
 {
     float enemySpeed = 4.0f; // Velocidade dos inimigos
@@ -54,8 +55,10 @@ void UpdateEnemies(float elapsedTime, const glm::vec3 &g_PlayerPosition)
         enemy.rotation = -atan2(direction.z, direction.x);
     }
 }
+
 void DrawEnemies()
 {
+    static GLuint last_texture_id = 0;
     for (const auto &enemy : enemies)
     {
         glm::mat4 model = Matrix_Identity();
@@ -64,6 +67,15 @@ void DrawEnemies()
         model = glm::rotate(model, enemy.rotation, glm::vec3(0.0f, 1.0f, 0.0f));
 
         // Renderiza o modelo do inimigo
+        GLuint current_texture_id = g_VirtualScene["the_enemy"].texture_id;
+        if (last_texture_id != current_texture_id)
+        {
+            glActiveTexture(GL_TEXTURE1);
+            glBindTexture(GL_TEXTURE_2D, current_texture_id);
+            glUniform1i(g_texture1_uniform, 1);
+            last_texture_id = current_texture_id;
+            printf("Textura do inimigo vinculada.\n");
+        }
         RenderModel("the_enemy", model, ENEMY);
     }
 }

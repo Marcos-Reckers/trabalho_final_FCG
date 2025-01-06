@@ -31,7 +31,6 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 message(STATUS
   "Build type: ${CMAKE_BUILD_TYPE}
-
                Change the build type on the command line with
 
                    -DCMAKE_BUILD_TYPE=type

@@ -51,6 +51,8 @@ void LoadShadersFromFiles()
     g_object_id_uniform = glGetUniformLocation(g_GpuProgramID, "object_id");   // Variável "object_id" em shader_fragment.glsl
     g_bbox_min_uniform = glGetUniformLocation(g_GpuProgramID, "bbox_min");
     g_bbox_max_uniform = glGetUniformLocation(g_GpuProgramID, "bbox_max");
+    g_texture0_uniform = glGetUniformLocation(g_GpuProgramID, "TextureImage0");
+    g_texture1_uniform = glGetUniformLocation(g_GpuProgramID, "TextureImage1");
 }
 
 // Carrega um Vertex Shader de um arquivo GLSL. Veja definição de LoadShader() abaixo.

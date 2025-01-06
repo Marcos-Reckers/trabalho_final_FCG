@@ -6,7 +6,6 @@
 #include <glm/gtc/type_ptr.hpp>
 #include "matrices.h"
 
-
 void RenderInit() {
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_CULL_FACE);
@@ -33,29 +32,38 @@ void SendMatricesToGPU(const glm::mat4& view, const glm::mat4& projection, const
     glUniformMatrix4fv(g_view_uniform, 1, GL_FALSE, glm::value_ptr(view));
     glUniformMatrix4fv(g_projection_uniform, 1, GL_FALSE, glm::value_ptr(projection));
 }
-void RenderModel(const char* model_name, const glm::mat4& model_matrix, int object_id){
+void RenderModel(const char* model_name, const glm::mat4& model_matrix, int object_id)
+{
     glUniformMatrix4fv(g_model_uniform, 1, GL_FALSE, glm::value_ptr(model_matrix));
     glUniform1i(g_object_id_uniform, object_id);
 
-    // Ative a unidade de textura e vincule a textura apropriada
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, g_VirtualScene[model_name].texture_id);
+    static GLuint last_texture_id = 0;
+    GLuint current_texture_id = g_VirtualScene[model_name].texture_id;
+
+    // Bind the appropriate texture based on the object ID
+    if (object_id == PLAYER)
+    {
+        if (last_texture_id != current_texture_id)
+        {
+            glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_2D, current_texture_id);
+            glUniform1i(g_texture0_uniform, 0);
+            last_texture_id = current_texture_id;
+        }
+    }
+    else if (object_id == ENEMY)
+    {
+        if (last_texture_id != current_texture_id)
+        {
+            glActiveTexture(GL_TEXTURE1);
+            glBindTexture(GL_TEXTURE_2D, current_texture_id);
+            glUniform1i(g_texture1_uniform, 1);
+            last_texture_id = current_texture_id;
+        }
+    }
 
     DrawVirtualObject(model_name);
 }
-// Função que desenha um objeto armazenado em g_VirtualScene. Veja definição
-// dos objetos na função BuildTrianglesAndAddToVirtualScene().
-
-
-void DrawPlayer() {
-    glm::mat4 model = Matrix_Identity();
-    model = Matrix_Translate(g_PlayerPosition.x, g_PlayerPosition.y, g_PlayerPosition.z)
-          * g_PlayerRotation
-          * Matrix_Translate(0.0f, -2.0f, 0.0f)
-          * Matrix_Scale(0.02f, 0.02f, 0.02f);
-    RenderModel("the_player", model, PLAYER);
-}
-
 
 void DrawPlane() {
     glm::mat4 model = Matrix_Identity();

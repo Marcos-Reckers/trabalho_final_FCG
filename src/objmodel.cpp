@@ -223,7 +223,7 @@ void BuildTrianglesAndAddToVirtualScene(ObjModel *model)
         glBindBuffer(GL_ARRAY_BUFFER, VBO_texture_coefficients_id);
         glBufferData(GL_ARRAY_BUFFER, texture_coefficients.size() * sizeof(float), NULL, GL_STATIC_DRAW);
         glBufferSubData(GL_ARRAY_BUFFER, 0, texture_coefficients.size() * sizeof(float), texture_coefficients.data());
-        location = 2;             // "(location = 1)" em "shader_vertex.glsl"
+        location = 2;             // "(location = 2)" em "shader_vertex.glsl"
         number_of_dimensions = 2; // vec2 em "shader_vertex.glsl"
         glVertexAttribPointer(location, number_of_dimensions, GL_FLOAT, GL_FALSE, 0, 0);
         glEnableVertexAttribArray(location);
@@ -243,6 +243,30 @@ void BuildTrianglesAndAddToVirtualScene(ObjModel *model)
     // "Desligamos" o VAO, evitando assim que operações posteriores venham a
     // alterar o mesmo. Isso evita bugs.
     glBindVertexArray(0);
+}
+
+void LoadModel(const std::string& filename)
+{
+    // Crie uma instância de ObjModel para carregar o modelo
+    ObjModel model(filename.c_str());
+
+    for (size_t shape = 0; shape < model.shapes.size(); ++shape)
+    {
+        for (size_t i = 0; i < model.shapes[shape].mesh.indices.size(); i += 3)
+        {
+            // Verifique se as coordenadas de textura estão presentes
+            if (!model.attrib.texcoords.empty())
+            {
+                for (size_t j = 0; j < 3; ++j)
+                {
+                    tinyobj::index_t idx = model.shapes[shape].mesh.indices[i + j];
+                    float tx = model.attrib.texcoords[2 * idx.texcoord_index + 0];
+                    float ty = model.attrib.texcoords[2 * idx.texcoord_index + 1];
+                    std::cout << "Coordenadas de textura: (" << tx << ", " << ty << ")\n";
+                }
+            }
+        }
+    }
 }
 
 
