@@ -17,6 +17,7 @@
 #define PLANE 2
 #define ENEMY 3
 #define BONUS 4
+#define PROJECTILE 5
 
 // Definição de variáveis globais
 extern std::map<std::string, SceneObject> g_VirtualScene;
@@ -56,6 +57,7 @@ extern GLint g_texture1_uniform;
 extern GLint g_texture2_uniform;
 extern GLint g_texture3_uniform;
 extern GLint g_texture4_uniform;
+extern GLint g_texture5_uniform;
 
 extern GLint g_bbox_min_uniform;
 extern GLint g_bbox_max_uniform;

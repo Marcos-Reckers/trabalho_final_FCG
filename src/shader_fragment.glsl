@@ -14,6 +14,7 @@ uniform mat4 projection;
 #define PLANE  2
 #define ENEMY 3
 #define BONUS 4
+#define PROJECTILE 5
 uniform int object_id;
 
 uniform vec4 bbox_min;
@@ -24,6 +25,7 @@ uniform sampler2D TextureImage1;
 uniform sampler2D TextureImage2;
 uniform sampler2D TextureImage3;
 uniform sampler2D TextureImage4;
+uniform sampler2D TextureImage5;
 
 out vec4 color;
 
@@ -47,7 +49,7 @@ void main()
     if (object_id == WALL)
     {
         // Projeção planar para as paredes
-        float scaling = 0.9;
+        float scaling = 1;
 
         float minx = bbox_min.x;
         float maxx = bbox_max.x;
@@ -105,7 +107,15 @@ void main()
         Ks = vec3(1.0, 1.0, 1.0);
         Ka = vec3(1.0, 1.0, 1.0);
         q = 64.0;
-        textureColor = texture(TextureImage4, tex_coords).rgb; // Supondo que a textura do bônus está em TextureImage0
+        textureColor = texture(TextureImage4, tex_coords).rgb; // Supondo que a textura do bônus está em TextureImage4
+    }
+    else if (object_id == PROJECTILE)
+    {
+        Kd = vec3(1.0, 1.0, 1.0);
+        Ks = vec3(1.0, 1.0, 1.0);
+        Ka = vec3(1.0, 1.0, 1.0);
+        q = 64.0;
+        textureColor = texture(TextureImage5, tex_coords).rgb; // Supondo que a textura do bônus está em TextureImage5
     }
     else
     {

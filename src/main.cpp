@@ -40,10 +40,14 @@
 #include <math.h>
 #include <stb_image.h>
 #include "bonus.h"
+#include "projectile.h"
 
 void LoadTextureImage(const char *filename);                                                 // Função que carrega imagens de textura
 void DrawFloor(const glm::vec3 &scale, const glm::vec3 &translate, float rotateY, int type); // Função que desenha o chão
 void DrawWall(const glm::vec3 &scale, const glm::vec3 &translate, float rotateY, int type);  // Função que desenha as paredes
+
+std::vector<Projectile> projectiles;
+float lastShotTime = 0.0f;
 
 int main(int argc, char *argv[])
 {
@@ -114,7 +118,8 @@ int main(int argc, char *argv[])
     LoadTextureImage("../../data/Splinter_BaseColor.png");                                       // TextureImage1
     LoadTextureImage("../../data/chao.png");                                                     // TextureImage2
     LoadTextureImage("../../data/paredes.png");                                                  // TextureImage3
-    LoadTextureImage("../../data/Pizza_Diffuse_Color.png");                                      // TextureImage5
+    LoadTextureImage("../../data/Pizza_Diffuse_Color.png");                                      // TextureImage4
+    LoadTextureImage("../../data/shuriken.png");                                                 // TextureImage5
 
     // Construímos a representação de objetos geométricos através de malhas de triângulos
     LoadModels(argc, argv);
@@ -139,6 +144,9 @@ int main(int argc, char *argv[])
 
     // Inicializamos os bônus
     InitializeBonuses();
+
+    // Inicializamos os projéteis
+    projectiles.clear();
 
     // Ficamos em um loop infinito, renderizando, até que o usuário feche a janela
     while (!glfwWindowShouldClose(window))
@@ -178,10 +186,10 @@ int main(int argc, char *argv[])
         DrawFloor(glm::vec3(40.0, 1.0, 40.0), glm::vec3(0.0f, -1.0f, 0.0f), g_AngleY, PLANE);
 
         // Desenhamos os modelos das paredes
-        DrawWall(glm::vec3(1.0, 20.0, 50.0), glm::vec3(32.0f, 0.5f, 0.0f), g_AngleY, WALL);
-        DrawWall(glm::vec3(1.0, 20.0, 50.0), glm::vec3(-32.0f, 0.5f, 0.0f), -M_PI, WALL);
-        DrawWall(glm::vec3(50.0, 20.0, 1.0), glm::vec3(0.0f, 0.5f, 35.0f), -M_PI / 2, WALL);
-        DrawWall(glm::vec3(50.0, 20.0, 1.0), glm::vec3(0.0f, 0.5f, -35.0f), M_PI / 2, WALL);
+        DrawWall(glm::vec3(1.0, 10.0, 40.0), glm::vec3(40.0f, 0.9f, 0.0f), g_AngleY, WALL);
+        DrawWall(glm::vec3(1.0, 10.0, 40.0), glm::vec3(-40.0f, 0.9f, 0.0f), -M_PI, WALL);
+        DrawWall(glm::vec3(40.0, 10.0, 1.0), glm::vec3(0.0f, 0.9f, 40.0f), -M_PI / 2, WALL);
+        DrawWall(glm::vec3(40.0, 10.0, 1.0), glm::vec3(0.0f, 0.9f, -40.0f), M_PI / 2, WALL);
 
         // Atualizamos a posição dos inimigos
         UpdateEnemies(elapsedTime, g_PlayerPosition);
@@ -189,11 +197,17 @@ int main(int argc, char *argv[])
         // Atualizamos a posição dos bônus
         UpdateBonuses(elapsedTime);
 
+        // Atualizamos a posição dos projéteis
+        UpdateProjectiles(projectiles, elapsedTime);
+
         // Desenhamos os inimigos
         DrawEnemies();
 
         // Desenhamos os bônus
         DrawBonuses();
+
+        // Desenhamos os projéteis
+        DrawProjectiles(projectiles);
 
         // Imprimimos na tela informação sobre o número de quadros renderizados
         // por segundo (frames per second).

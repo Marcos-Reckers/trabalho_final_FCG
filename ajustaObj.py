@@ -43,4 +43,14 @@ def ajusta_obj(nome_arquivo, escala):
     print(f"Arquivo centralizado salvo como {nome_arquivo_centralizado}")
 
 # Exemplo de uso
-ajusta_obj("D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/data/enemy.obj", 2)
+#ajusta_obj("D:/user/Documents/UFRGS/TrabFinalFCG/trabalho_final_FCG/data/enemy.obj", 2)
+
+if __name__ == "__main__":
+    import sys
+    if len(sys.argv) < 3:
+        print("Uso: python ajustaObj.py <nome_arquivo> <escala>")
+        sys.exit(1)
+
+    nome_arquivo = sys.argv[1]
+    escala = float(sys.argv[2])
+    ajusta_obj(nome_arquivo, escala)

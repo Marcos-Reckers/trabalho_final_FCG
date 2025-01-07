@@ -32,6 +32,10 @@ void LoadModels(int argc, char *argv[]) {
     ComputeNormals(&bonusmodel);
     BuildTrianglesAndAddToVirtualScene(&bonusmodel);
 
+    ObjModel projectilemodel("../../data/shuriken.obj");
+    ComputeNormals(&projectilemodel);
+    BuildTrianglesAndAddToVirtualScene(&projectilemodel);
+
     if (argc > 1) {
         ObjModel model(argv[1]);
         BuildTrianglesAndAddToVirtualScene(&model);
