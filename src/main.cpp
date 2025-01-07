@@ -339,4 +339,5 @@ void DrawWall(const glm::vec3 &scale, const glm::vec3 &translate, float rotateY,
         printf("Textura do the_wall vinculada.\n");
     }
     RenderModel("the_wall", model, type);
+    
 }
