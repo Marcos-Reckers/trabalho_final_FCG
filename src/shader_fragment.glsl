@@ -23,6 +23,7 @@ uniform sampler2D TextureImage0;
 uniform sampler2D TextureImage1;
 uniform sampler2D TextureImage2;
 uniform sampler2D TextureImage3;
+uniform sampler2D TextureImage4;
 
 out vec4 color;
 
@@ -97,6 +98,14 @@ void main()
         Ka = vec3(0.6, 0.6, 0.6);
         q = 10.0;
         textureColor = texture(TextureImage1, tex_coords).rgb;
+    }
+    else if (object_id == BONUS)
+    {
+        Kd = vec3(1.0, 1.0, 1.0);
+        Ks = vec3(1.0, 1.0, 1.0);
+        Ka = vec3(1.0, 1.0, 1.0);
+        q = 64.0;
+        textureColor = texture(TextureImage4, tex_coords).rgb; // Supondo que a textura do bônus está em TextureImage0
     }
     else
     {
