@@ -203,6 +203,8 @@ int main(int argc, char *argv[])
         // Desenhamos os inimigos
         DrawEnemies();
 
+        
+
         // Desenhamos os bônus
         DrawBonuses();
 
