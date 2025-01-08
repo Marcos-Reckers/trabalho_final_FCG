@@ -46,6 +46,12 @@ void main()
 
     vec3 textureColor = vec3(1.0, 1.0, 1.0); // Default white color
 
+    vec3 I = vec3(2.0, 2.0, 2.0); // Intensidade da luz
+    vec3 Ia = vec3(0.5, 0.5, 0.5); // Intensidade da luz ambiente global
+    vec3 lambert_diffuse_term;
+    vec3 ambient_term;
+    vec3 phong_specular_term;
+
     if (object_id == WALL)
     {
         // Projeção planar para as paredes
@@ -108,6 +114,13 @@ void main()
         Ka = vec3(1.0, 1.0, 1.0);
         q = 64.0;
         textureColor = texture(TextureImage4, tex_coords).rgb; // Supondo que a textura do bônus está em TextureImage4
+        vec4 h = normalize(l + v);
+        vec3 lambert_diffuse_term_bonus = Kd * I * max(0.0, dot(n, l));
+        vec3 ambient_term_bonus = Ka * Ia;
+        vec3 phong_specular_term_bonus = Ks * I * pow(max(0.0, dot(n, h)), q);
+        vec3 finalColorBonus = (ambient_term_bonus + phong_specular_term_bonus) * textureColor;
+        color = vec4(finalColorBonus, 1.0);
+        return;
     }
     else if (object_id == PROJECTILE)
     {
@@ -125,11 +138,10 @@ void main()
         q = 1.0;
     }
 
-    vec3 I = vec3(2.0, 2.0, 2.0); // Intensidade da luz
-    vec3 Ia = vec3(0.5, 0.5, 0.5); // Intensidade da luz ambiente global
-    vec3 lambert_diffuse_term = Kd * I * max(0, dot(n, l));
-    vec3 ambient_term = Ka * Ia;
-    vec3 phong_specular_term = Ks * I * pow(max(0, dot(r, v)), q);
+    lambert_diffuse_term = Kd * I * max(0, dot(n, l));
+    ambient_term = Ka * Ia;
+    if (object_id != BONUS)
+        phong_specular_term = Ks * I * pow(max(0, dot(r, v)), q);
 
     vec3 finalColor = (lambert_diffuse_term + ambient_term + phong_specular_term) * textureColor;
 
