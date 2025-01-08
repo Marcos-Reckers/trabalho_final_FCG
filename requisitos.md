@@ -61,7 +61,7 @@
      * **Câmera look-at**
      * **Câmera livre**
 4. **Instâncias de Objetos**
-   * No mínimo um objeto deve ser copiado com  **duas ou mais instâncias** .
+   * No mínimo um objeto deve ser copiado com  **duas ou mais instâncias** (PIZZA SHURIKEN E INIMIGOS).
    * Apenas as matrizes de modelagem devem ser alteradas.
 5. **Testes de Interseção**
    * Implementação mínima de **três tipos** de teste de interseção:
@@ -70,21 +70,21 @@
    * Testes devem estar implementados em `collisions.cpp`.
 6. **Iluminação**
    * Modelos de iluminação obrigatórios:
-     * **Difusa (Lambert)**
-     * **Blinn-Phong**
+     * **Difusa (Lambert)** O RESTO USA ESSA
+     * **Blinn-Phong PIZZA(BONUS) usa essa**
    * Modelos de interpolação obrigatórios:
-     * **Gouraud** : Avaliado por vértice, interpolado por pixel.
-     * **Phong** : Normais interpoladas, iluminação avaliada por pixel.
-7. **Mapeamento de Texturas**
+     * **Gouraud** : Avaliado por vértice, interpolado por pixel.  FALTA
+     * **Phong** : Normais interpoladas, iluminação avaliada por pixel. TODOS OS OBJETOS USAM ESSA
+7. **Mapeamento de Texturas** FEITO, tudo tem textura
    * Todos os objetos virtuais devem usar  **texturas** .
    * **Requisitos mínimos** :
    * Uso de no mínimo **três imagens distintas** como texturas.
    * Texturas "esticadas" de forma não natural serão penalizadas.
 8. **Curvas de Bézier**
    * No mínimo um objeto deve seguir uma  **curva de Bézier cúbica** .
-   * O movimento deve ser **suave** e  **curvo** .
+   * O movimento deve ser **suave** e  **curvo** NO COMEÇO DO JOGO.
 9. **Animação de Movimento**
-   * Movimentações devem ser baseadas no  **tempo** :
+   * Movimentações devem ser baseadas no  **tempo** : FEITO, TUDO USA O ELAPSED_TIME
      * Mesma velocidade independente do hardware.
 
 ---
