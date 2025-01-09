@@ -94,7 +94,10 @@ int main(int argc, char *argv[])
     // Criamos uma janela do sistema operacional, com 800 colunas e 600 linhas
     // de pixels, e com título "INF01047 ...".
     GLFWwindow *window;
-    window = glfwCreateWindow(1024, 768, "INF01047 - Ninja Survival", NULL, NULL);
+    // Obtém a resolução da tela
+    const GLFWvidmode *mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
+    // Cria a janela com a resolução da tela, mas em modo janela
+    window = glfwCreateWindow(mode->width, mode->height, "INF01047 - Ninja Survival", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
@@ -115,7 +118,9 @@ int main(int argc, char *argv[])
 
     // Definimos a função de callback que será chamada sempre que a janela for redimensionada.
     glfwSetFramebufferSizeCallback(window, FramebufferSizeCallback);
-    FramebufferSizeCallback(window, 1024, 768);
+    int width, height;
+    glfwGetFramebufferSize(window, &width, &height);
+    FramebufferSizeCallback(window, width, height);
 
     // Imprimimos no terminal informações sobre a GPU do sistema
     const GLubyte *vendor = glGetString(GL_VENDOR);
