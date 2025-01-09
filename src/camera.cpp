@@ -25,6 +25,9 @@ void UpdatePlayerPos(glm::vec3 horizontal_direction, glm::vec3 camera_right, flo
     glm::vec3 player_forward = -horizontal_direction; // Direção horizontal da câmera
     float angle = atan2(player_forward.z, player_forward.x);
     g_PlayerRotation = glm::rotate(glm::mat4(1.0f), (-angle - 1.6f), glm::vec3(0.0f, 1.0f, 0.0f));
+
+    if (g_PlayerPosition.y < 0.0f)
+        g_PlayerPosition.y = 0.0f;
 }
 
 glm::vec3 BezierCurve(glm::vec3 p0, glm::vec3 p1, glm::vec3 p2, glm::vec3 p3, float t)
@@ -85,7 +88,6 @@ void UpdateCamera(float elapsedTime)
     }
     else
     {
-        // Código existente para atualizar a câmera após a animação
         // Limite o ângulo vertical da câmera para estar entre -π/3 e π/3
         float max_vertical_angle = glm::pi<float>() / 3.0f; // 60º em radianos
         if (g_CameraPhi > max_vertical_angle)
@@ -109,11 +111,17 @@ void UpdateCamera(float elapsedTime)
         glm::vec3 horizontal_direction = glm::normalize(glm::vec3(camera_direction.x, 0.0f, camera_direction.z));
         glm::vec3 camera_right = glm::normalize(glm::cross(camera_direction, glm::vec3(0.0f, 1.0f, 0.0f)));
 
+        // Primeiro atualiza posição do jogador
         UpdatePlayerPos(horizontal_direction, camera_right, elapsedTime);
 
-        // Atualiza posição da camera após movimento do jogador.
-        glm::vec3 camera_position = g_PlayerPosition - camera_direction * g_CameraDistance;
-        camera_position.y = g_CameraHeight; // Mantém a altura constante
+        // Recalcula camera_position_c a partir da nova posição do jogador
+        x = g_PlayerPosition.x + radius * -cos(g_CameraPhi) * cos(g_CameraTheta);
+        y = g_PlayerPosition.y + radius * sin(g_CameraPhi);
+        z = g_PlayerPosition.z + radius * cos(g_CameraPhi) * sin(g_CameraTheta);
+        camera_position_c = glm::vec4(x, y, z, 1.0f);
+        camera_view_vector = camera_lookat_l - camera_position_c;
+
+        view = Matrix_Camera_View(camera_position_c, camera_view_vector, camera_up_vector);
 
         // Agora computamos a matriz de Projeção.
         glm::mat4 projection;
@@ -143,7 +151,7 @@ void UpdateCamera(float elapsedTime)
         glm::vec3 direction = glm::normalize(glm::vec3(camera_view_vector));
         direction.y = 0.0f;
 
-        projectiles.push_back(Projectile(g_PlayerPosition, direction, 0.0f, 3.0f));
+        projectiles.push_back(Projectile(g_PlayerPosition, direction, 25.0f, 3.0f));
         lastShotTime = glfwGetTime();
     }
 }

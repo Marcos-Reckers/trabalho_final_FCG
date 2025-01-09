@@ -10,6 +10,7 @@ void UpdateProjectiles(std::vector<Projectile> &projectiles, float elapsedTime)
     for (auto &proj : projectiles)
     {
         proj.position += proj.direction * proj.speed * elapsedTime;
+        UpdateBaundingBox(proj.bbox, proj.position, 0.2f);
     }
 }
 
@@ -20,7 +21,7 @@ void DrawProjectiles(const std::vector<Projectile> &projectiles)
     {
         glm::mat4 model = Matrix_Identity();
         model = glm::translate(glm::mat4(1.0f), projectile.position);
-        // model = glm::rotate(model, static_cast<float>(glfwGetTime()*10), glm::vec3(0.0f, 1.0f, 0.0f)); // Gira em volta do próprio eixo Y
+        model = glm::rotate(model, static_cast<float>(glfwGetTime()*10), glm::vec3(0.0f, 1.0f, 0.0f)); // Gira em volta do próprio eixo Y
 
         GLuint current_texture_id = g_VirtualScene["shuriken"].texture_id;
         if (last_texture_id != current_texture_id)

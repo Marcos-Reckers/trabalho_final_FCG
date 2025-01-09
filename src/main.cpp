@@ -234,36 +234,20 @@ int main(int argc, char *argv[])
         // }
 
         // player com os inimigos (CUBO-CUBO)
-        for (int i = 0; i < enemies.size(); i++)
-        {
-            if (CheckCubeCubeCollision(g_Playerbbox, enemies[i].bbox, g_PlayerSpeed, g_enemySpeed, elapsedTime))
-            {
-                g_PlayerPosition -= g_PlayerSpeed * elapsedTime;
-            }
-        }
 
-        // Inimigos com inimigos (CUBO-CUBO)
-        for (int i = 0; i < enemies.size(); i++)
-        {
-            for (int j = i + 1; j < enemies.size(); j++)
-            {
-                if (CheckCubeCubeCollision(enemies[i].bbox, enemies[j].bbox, g_enemySpeed, g_enemySpeed, elapsedTime))
-                {
-                    enemies[i].position -= g_enemySpeed * elapsedTime;
-                    enemies[j].position -= g_enemySpeed * elapsedTime;
-                }
-            }
-        }
+
 
         // Shuriken com inimigos (CUBO-CUBO)
         for (int i = 0; i < projectiles.size(); i++)
         {
             for (int j = 0; j < enemies.size(); j++)
             {
-                if (CheckDotSphereCollision(enemies[i].position, projectiles[j].position, projectiles[i].radius, elapsedTime, projectiles[i].speed))
+                if (CheckCubeCubeCollision(projectiles[i].bbox, enemies[j].bbox, projectiles[i].speed, g_enemySpeed, elapsedTime))
                 {
                     enemies.erase(enemies.begin() + j);
                     projectiles.erase(projectiles.begin() + i);
+                    i--; // Ajustar o índice após a remoção
+                    break; // Sair do loop interno após a colisão
                 }
             }
         }

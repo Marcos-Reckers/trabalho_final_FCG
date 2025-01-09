@@ -16,6 +16,7 @@ struct Projectile
     glm::vec3 direction;
     float speed;
     float radius;
+    AABB bbox; // novo campo
 
     Projectile(glm::vec3 pos, glm::vec3 dir, float spd, float rad) : position(pos), direction(dir), speed(spd), radius(rad) {}
 };

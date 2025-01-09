@@ -78,4 +78,5 @@ void UpdateBaundingBox(AABB &box, const glm::vec3 &center, float halfSize)
     box.min = glm::vec3(center.x - halfSize, center.y - halfSize, center.z - halfSize);
     box.max = glm::vec3(center.x + halfSize, center.y + halfSize, center.z + halfSize);
     printf("Updated bounding box. Box min: %f %f %f\n", box.min.x, box.min.y, box.min.z);
+    printf("Updated bounding box. Box max: %f %f %f\n", box.max.x, box.max.y, box.max.z);
 }
