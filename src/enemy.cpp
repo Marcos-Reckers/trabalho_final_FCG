@@ -21,6 +21,7 @@ std::vector<Enemy> enemies;
 
 void InitializeEnemies(int numEnemies, const glm::vec3 &playerPosition)
 {
+    g_enemySpeed = 0.0f;
     srand(static_cast<unsigned int>(time(0)));
     for (int i = 0; i < numEnemies; ++i)
     {
@@ -34,7 +35,7 @@ void InitializeEnemies(int numEnemies, const glm::vec3 &playerPosition)
             );
         } while (glm::distance(enemy.position, playerPosition) < 30.0f);
 
-        enemy.bbox = CreateBoundingBox(enemy.position, 1.5f); // Ajuste o tamanho da bounding box
+        enemy.bbox = CreateBoundingBox(enemy.position, 1.0f); // Ajuste o tamanho da bounding box
         enemies.push_back(enemy);
     }
 }
@@ -46,7 +47,7 @@ void UpdateEnemies(float elapsedTime, const glm::vec3 &g_PlayerPosition)
         glm::vec3 direction = glm::normalize(g_PlayerPosition - enemy.position);
         enemy.position += direction * g_enemySpeed * elapsedTime;
         enemy.position.y = ENEMY_HEIGHT;
-        UpdateBaundingBox(enemy.bbox, enemy.position, 1.5f); // Ajuste o tamanho da bounding box
+        UpdateBaundingBox(enemy.bbox, enemy.position, 1.0f); // Ajuste o tamanho da bounding box
 
         // Calcula ângulo de rotação do inimigo para olhar para o jogador
         enemy.rotation = -atan2(direction.z, direction.x);

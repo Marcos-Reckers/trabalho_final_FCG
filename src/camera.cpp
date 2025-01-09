@@ -11,15 +11,19 @@ glm::vec4 camera_view_vector;
 
 void UpdatePlayerPos(glm::vec3 horizontal_direction, glm::vec3 camera_right, float elapsedTime)
 {
+    int keys_pressed = front + back + left + right;
+    float player_speed = g_PlayerSpeed;
+    if (keys_pressed > 1)
+        player_speed /= sqrt(2.0f);
     // Atualiza a posição do jogador com base nas teclas pressionadas
     if (front)
-        g_PlayerPosition += g_PlayerSpeed * horizontal_direction * elapsedTime;
+        g_PlayerPosition += player_speed * horizontal_direction * elapsedTime;
     if (back)
-        g_PlayerPosition -= g_PlayerSpeed * horizontal_direction * elapsedTime;
+        g_PlayerPosition -= player_speed * horizontal_direction * elapsedTime;
     if (left)
-        g_PlayerPosition -= g_PlayerSpeed * camera_right * elapsedTime;
+        g_PlayerPosition -= player_speed * camera_right * elapsedTime;
     if (right)
-        g_PlayerPosition += g_PlayerSpeed * camera_right * elapsedTime;
+        g_PlayerPosition += player_speed * camera_right * elapsedTime;
 
     // Atualiza a orientação do jogador.
     glm::vec3 player_forward = -horizontal_direction; // Direção horizontal da câmera
@@ -67,6 +71,7 @@ void UpdateCamera(float elapsedTime)
         {
             t = 1.0f;
             animationComplete = true;
+            g_enemySpeed = 4.0f;
         }
 
         glm::vec3 camera_position = BezierCurve(initialPosition, controlPoint1, controlPoint2, finalPosition, t);
@@ -96,6 +101,11 @@ void UpdateCamera(float elapsedTime)
             g_CameraPhi = -max_vertical_angle;
 
         // Abaixo definimos as varáveis que efetivamente definem a câmera virtual.
+          // Definição de vetores utilizados no controle da câmera.
+        glm::vec3 camera_direction = glm::normalize(glm::vec3(camera_view_vector));
+        glm::vec3 horizontal_direction = glm::normalize(glm::vec3(camera_direction.x, 0.0f, camera_direction.z));
+        glm::vec3 camera_right = glm::normalize(glm::cross(camera_direction, glm::vec3(0.0f, 1.0f, 0.0f)));
+        UpdatePlayerPos(horizontal_direction, camera_right, elapsedTime);
         glm::vec4 camera_lookat_l = glm::vec4(g_PlayerPosition, 1.0f); // Ponto "l", para onde a câmera (look-at) estará sempre olhando
         float radius = g_CameraDistance;
         float x = g_PlayerPosition.x + radius * -cos(g_CameraPhi) * cos(g_CameraTheta);
@@ -105,23 +115,6 @@ void UpdateCamera(float elapsedTime)
         camera_view_vector = camera_lookat_l - camera_position_c;       // Vetor "view", sentido para onde a câmera está virada
         glm::vec4 camera_up_vector = glm::vec4(0.0f, 1.0f, 0.0f, 0.0f); // Vetor "up" fixado para apontar para o "céu" (eito Y global)
         glm::mat4 view = Matrix_Camera_View(camera_position_c, camera_view_vector, camera_up_vector);
-
-        // Definição de vetores utilizados no controle da câmera.
-        glm::vec3 camera_direction = glm::normalize(glm::vec3(camera_view_vector));
-        glm::vec3 horizontal_direction = glm::normalize(glm::vec3(camera_direction.x, 0.0f, camera_direction.z));
-        glm::vec3 camera_right = glm::normalize(glm::cross(camera_direction, glm::vec3(0.0f, 1.0f, 0.0f)));
-
-        // Primeiro atualiza posição do jogador
-        UpdatePlayerPos(horizontal_direction, camera_right, elapsedTime);
-
-        // Recalcula camera_position_c a partir da nova posição do jogador
-        x = g_PlayerPosition.x + radius * -cos(g_CameraPhi) * cos(g_CameraTheta);
-        y = g_PlayerPosition.y + radius * sin(g_CameraPhi);
-        z = g_PlayerPosition.z + radius * cos(g_CameraPhi) * sin(g_CameraTheta);
-        camera_position_c = glm::vec4(x, y, z, 1.0f);
-        camera_view_vector = camera_lookat_l - camera_position_c;
-
-        view = Matrix_Camera_View(camera_position_c, camera_view_vector, camera_up_vector);
 
         // Agora computamos a matriz de Projeção.
         glm::mat4 projection;

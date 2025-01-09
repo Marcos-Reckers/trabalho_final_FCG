@@ -63,6 +63,8 @@ float lastShotTime = 0.0f;
 //         : scale(scale), translate(translate), rotateY(rotateY), type(type) {}
 // };
 
+std::vector<Plane> walls;
+
 int main(int argc, char *argv[])
 {
     // Inicializamos a biblioteca GLFW, utilizada para criar uma janela do
@@ -154,14 +156,20 @@ int main(int argc, char *argv[])
     float lastTime = glfwGetTime();
 
     // Inicializamos os inimigos
-    InitializeEnemies(5, g_PlayerPosition);
+    InitializeEnemies(10, g_PlayerPosition);
 
     // Inicializamos os bônus
     InitializeBonuses();
 
     // Inicializamos os projéteis
     projectiles.clear();
-    g_Playerbbox = CreateBoundingBox(g_PlayerPosition, 2.0f);
+    g_Playerbbox = CreateBoundingBox(g_PlayerPosition, 0.1f);
+
+    // Inicializamos os planos das paredes
+    walls.push_back({glm::vec3(1.0f, 0.0f, 0.0f), 40.0f});  // Parede direita
+    walls.push_back({glm::vec3(-1.0f, 0.0f, 0.0f), 40.0f}); // Parede esquerda
+    walls.push_back({glm::vec3(0.0f, 0.0f, 1.0f), 40.0f});  // Parede frontal
+    walls.push_back({glm::vec3(0.0f, 0.0f, -1.0f), 40.0f}); // Parede traseira
 
     // Ficamos em um loop infinito, renderizando, até que o usuário feche a janela
     while (!glfwWindowShouldClose(window))
@@ -223,19 +231,66 @@ int main(int argc, char *argv[])
 
         // Desenhamos os projéteis
         DrawProjectiles(projectiles);
-        
-        
+
         // Verificar as colisões
         //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-        // //Player com as paredes (CUBO-PLANO)
-        // if(CheckCubePlaneCollision(g_Playerbbox, g_VirtualScene["the_plane"].plane, g_PlayerSpeed, elapsedTime)){
-        //     g_PlayerPosition -= g_PlayerSpeed * elapsedTime;
-        // }
+        // Player com as paredes (CUBO-PLANO)
+        for (const auto &wall : walls)
+        {
+            if (CheckCubePlaneCollision(g_Playerbbox, wall, g_PlayerSpeed, elapsedTime))
+            {
+                g_PlayerPosition -= wall.normal * g_PlayerSpeed * elapsedTime;
+                UpdateBaundingBox(g_Playerbbox, g_PlayerPosition, 0.50f); // Atualizar a bounding box do player
+            }
+        }
+
+        // Inimigos com inimiogs (CUBO-CUBO)
+        for (int i = 0; i < enemies.size(); i++)
+        {
+            for (int j = i + 1; j < enemies.size(); j++)
+            {
+                if (CheckCubeCubeCollision(enemies[i].bbox, enemies[j].bbox, g_enemySpeed, g_enemySpeed, elapsedTime))
+                {
+                    std::cout << "Colisão entre inimigos" << std::endl;
+                    glm::vec3 direction = glm::normalize(enemies[j].position - enemies[i].position);
+                    enemies[i].position -= direction * g_enemySpeed * elapsedTime;
+                    enemies[j].position += direction * g_enemySpeed * elapsedTime;
+                    UpdateBaundingBox(enemies[i].bbox, enemies[i].position, 1.0f);
+                    UpdateBaundingBox(enemies[j].bbox, enemies[j].position, 1.0f);
+                }
+            }
+        }
+
+        // Shuriken com as paredes (CUBO-PLANO)
+        std::vector<Projectile> non_collided_projectiles;
+        for (auto &projectile : projectiles)
+        {
+            bool collided = false;
+            for (const auto &wall : walls)
+            {
+                if (CheckCubePlaneCollision(projectile.bbox, wall, projectile.speed, elapsedTime))
+                {
+                    collided = true;
+                    break; // Sair do loop interno após a colisão
+                }
+            }
+            if (!collided)
+                non_collided_projectiles.push_back(projectile);
+        }
+        projectiles = non_collided_projectiles;
 
         // player com os inimigos (CUBO-CUBO)
-
-
+        for (auto &enemy : enemies)
+        {
+            if (CheckCubeCubeCollision(g_Playerbbox, enemy.bbox, g_PlayerSpeed, g_enemySpeed, elapsedTime))
+            {
+                g_PlayerSpeed = 0.0f;
+                glm::vec3 direction = glm::normalize(g_PlayerPosition - enemy.position);
+                enemy.position -= direction * g_enemySpeed * elapsedTime;
+                UpdateBaundingBox(enemy.bbox, enemy.position, 1.0f);                
+            }
+        }
 
         // Shuriken com inimigos (CUBO-CUBO)
         for (int i = 0; i < projectiles.size(); i++)
@@ -246,7 +301,7 @@ int main(int argc, char *argv[])
                 {
                     enemies.erase(enemies.begin() + j);
                     projectiles.erase(projectiles.begin() + i);
-                    i--; // Ajustar o índice após a remoção
+                    i--;   // Ajustar o índice após a remoção
                     break; // Sair do loop interno após a colisão
                 }
             }
@@ -259,6 +314,12 @@ int main(int argc, char *argv[])
             {
                 bonuses.erase(bonuses.begin() + i);
             }
+        }
+
+        if (enemies.size() == 0)
+        {
+            InitializeEnemies(10, g_PlayerPosition);
+            g_enemySpeed = 5.0f;
         }
 
         //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

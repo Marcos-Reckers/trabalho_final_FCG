@@ -10,7 +10,7 @@ void UpdateProjectiles(std::vector<Projectile> &projectiles, float elapsedTime)
     for (auto &proj : projectiles)
     {
         proj.position += proj.direction * proj.speed * elapsedTime;
-        UpdateBaundingBox(proj.bbox, proj.position, 0.2f);
+        UpdateBaundingBox(proj.bbox, proj.position, 0.5f);
     }
 }
 

@@ -57,7 +57,7 @@ glm::mat4  g_PlayerRotation = glm::mat4(1.0f);
 AABB g_Playerbbox;
 
 float g_PlayerSpeed = 10.0f;
-float g_enemySpeed = 0.0f;
+float g_enemySpeed = 4.0f;
 float g_CameraHeight = 1.0f;
 
 double g_LastCursorPosX = 0;

@@ -57,18 +57,9 @@ bool CheckCubePlaneCollision(const AABB &box, const Plane &plane, float &velocit
     float dist = glm::dot(farCorner, plane.normal) - plane.distance;
 
     // Se estiver “atrás” do plano, há colisão
-    if (dist < 0.0f)
+    if (dist >= 0.0f)
     {
-        // Calcula a nova posição do cubo.
-        AABB newBox = box;
-        newBox.min += velocity * deltaTime;
-        newBox.max += velocity * deltaTime;
-
-        // Verifica se houve colisão.
-        bool teveColisao = newBox.min.x <= plane.distance && newBox.max.x >= plane.distance &&
-                           newBox.min.y <= plane.distance && newBox.max.y >= plane.distance &&
-                           newBox.min.z <= plane.distance && newBox.max.z >= plane.distance;
-        return teveColisao;
+        return true;
     }
     return false;
 }
@@ -77,6 +68,5 @@ void UpdateBaundingBox(AABB &box, const glm::vec3 &center, float halfSize)
 {
     box.min = glm::vec3(center.x - halfSize, center.y - halfSize, center.z - halfSize);
     box.max = glm::vec3(center.x + halfSize, center.y + halfSize, center.z + halfSize);
-    printf("Updated bounding box. Box min: %f %f %f\n", box.min.x, box.min.y, box.min.z);
-    printf("Updated bounding box. Box max: %f %f %f\n", box.max.x, box.max.y, box.max.z);
+
 }
