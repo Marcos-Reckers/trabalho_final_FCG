@@ -24,6 +24,8 @@ void InitializeBonuses()
     {
         Bonus bonus;
         bonus.position = positions[i];
+        bonus.center = positions[i];
+        bonus.radius = 1.0f;
         bonus.initialY = positions[i].y;
         bonuses.push_back(bonus);
     }

@@ -7,6 +7,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <glad/glad.h>
+#include "collisions.h"
 
 // Declare the uniform location variable
 extern GLint g_model_uniform;
@@ -19,6 +20,7 @@ void DrawCube();
 struct Enemy {
     glm::vec3 position;
     float rotation;
+    AABB bbox;
 };
 
 // Vector to store enemies

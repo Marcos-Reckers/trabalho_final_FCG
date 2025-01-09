@@ -9,6 +9,8 @@
 struct Bonus {
     glm::vec3 position;
     float initialY;
+    glm::vec3 center;
+    float radius;
 };
 
 // Vector to store bonuses

@@ -12,6 +12,7 @@
 #include <sstream>
 #include <stdexcept>
 #include <algorithm>
+#include <iostream>
 
 // Headers das bibliotecas OpenGL
 #include <glad/glad.h>  // Criação de contexto OpenGL 3.3
@@ -41,6 +42,7 @@
 #include <stb_image.h>
 #include "bonus.h"
 #include "projectile.h"
+#include "collisions.h"
 
 void LoadTextureImage(const char *filename);                                                 // Função que carrega imagens de textura
 void DrawFloor(const glm::vec3 &scale, const glm::vec3 &translate, float rotateY, int type); // Função que desenha o chão
@@ -48,6 +50,18 @@ void DrawWall(const glm::vec3 &scale, const glm::vec3 &translate, float rotateY,
 
 std::vector<Projectile> projectiles;
 float lastShotTime = 0.0f;
+
+// Estrutura simlpes para representar um plano geométrico
+// class Plane {
+// public:
+//     glm::vec3 scale;
+//     glm::vec3 translate;
+//     float rotateY;
+//     int type;
+
+//     Plane(const glm::vec3 &scale, const glm::vec3 &translate, float rotateY, int type)
+//         : scale(scale), translate(translate), rotateY(rotateY), type(type) {}
+// };
 
 int main(int argc, char *argv[])
 {
@@ -147,6 +161,7 @@ int main(int argc, char *argv[])
 
     // Inicializamos os projéteis
     projectiles.clear();
+    g_Playerbbox = CreateBoundingBox(g_PlayerPosition, 2.0f);
 
     // Ficamos em um loop infinito, renderizando, até que o usuário feche a janela
     while (!glfwWindowShouldClose(window))
@@ -203,13 +218,66 @@ int main(int argc, char *argv[])
         // Desenhamos os inimigos
         DrawEnemies();
 
-        
-
         // Desenhamos os bônus
         DrawBonuses();
 
         // Desenhamos os projéteis
         DrawProjectiles(projectiles);
+        
+        
+        // Verificar as colisões
+        //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+        // //Player com as paredes (CUBO-PLANO)
+        // if(CheckCubePlaneCollision(g_Playerbbox, g_VirtualScene["the_plane"].plane, g_PlayerSpeed, elapsedTime)){
+        //     g_PlayerPosition -= g_PlayerSpeed * elapsedTime;
+        // }
+
+        // player com os inimigos (CUBO-CUBO)
+        for (int i = 0; i < enemies.size(); i++)
+        {
+            if (CheckCubeCubeCollision(g_Playerbbox, enemies[i].bbox, g_PlayerSpeed, g_enemySpeed, elapsedTime))
+            {
+                g_PlayerPosition -= g_PlayerSpeed * elapsedTime;
+            }
+        }
+
+        // Inimigos com inimigos (CUBO-CUBO)
+        for (int i = 0; i < enemies.size(); i++)
+        {
+            for (int j = i + 1; j < enemies.size(); j++)
+            {
+                if (CheckCubeCubeCollision(enemies[i].bbox, enemies[j].bbox, g_enemySpeed, g_enemySpeed, elapsedTime))
+                {
+                    enemies[i].position -= g_enemySpeed * elapsedTime;
+                    enemies[j].position -= g_enemySpeed * elapsedTime;
+                }
+            }
+        }
+
+        // Shuriken com inimigos (CUBO-CUBO)
+        for (int i = 0; i < projectiles.size(); i++)
+        {
+            for (int j = 0; j < enemies.size(); j++)
+            {
+                if (CheckDotSphereCollision(enemies[i].position, projectiles[j].position, projectiles[i].radius, elapsedTime, projectiles[i].speed))
+                {
+                    enemies.erase(enemies.begin() + j);
+                    projectiles.erase(projectiles.begin() + i);
+                }
+            }
+        }
+
+        // Player com os Bonus (PONTO ESFERA)
+        for (int i = 0; i < bonuses.size(); i++)
+        {
+            if (CheckDotSphereCollision(g_PlayerPosition, bonuses[i].center, bonuses[i].radius, elapsedTime, g_PlayerSpeed))
+            {
+                bonuses.erase(bonuses.begin() + i);
+            }
+        }
+
+        //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         // Imprimimos na tela informação sobre o número de quadros renderizados
         // por segundo (frames per second).
@@ -341,5 +409,4 @@ void DrawWall(const glm::vec3 &scale, const glm::vec3 &translate, float rotateY,
         printf("Textura do the_wall vinculada.\n");
     }
     RenderModel("the_wall", model, type);
-    
 }

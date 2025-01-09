@@ -5,6 +5,7 @@
 #include <glm/gtc/type_ptr.hpp>
 #include "projectile.h"
 #include <iostream>
+#include "collisions.h"
 
 glm::vec4 camera_view_vector;
 
@@ -132,6 +133,9 @@ void UpdateCamera(float elapsedTime)
         // efetivamente aplicadas em todos os pontos.
         glUniformMatrix4fv(g_view_uniform, 1, GL_FALSE, glm::value_ptr(view));
         glUniformMatrix4fv(g_projection_uniform, 1, GL_FALSE, glm::value_ptr(projection));
+
+        UpdateBaundingBox(g_Playerbbox, g_PlayerPosition, 1.5f); // Atualizar a bounding box do jogador
+        DrawBoundingBox(g_Playerbbox); // Desenhar a bounding box do jogador
     }
 
     if (g_LeftMouseButtonPressed && (glfwGetTime() - lastShotTime) >= 1.0f)
@@ -139,7 +143,7 @@ void UpdateCamera(float elapsedTime)
         glm::vec3 direction = glm::normalize(glm::vec3(camera_view_vector));
         direction.y = 0.0f;
 
-        projectiles.push_back(Projectile(g_PlayerPosition, direction, 25.0f));
+        projectiles.push_back(Projectile(g_PlayerPosition, direction, 0.0f, 3.0f));
         lastShotTime = glfwGetTime();
     }
 }

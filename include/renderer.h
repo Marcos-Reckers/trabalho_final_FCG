@@ -6,6 +6,11 @@
 #include <string>
 #include "shaders.h"
 #include "objmodel.h"
+#include "scene.h"
+#include "collisions.h"
+
+// Desenha bounding Box
+void DrawBoundingBox(const AABB& box);
 
 // Initialize the rendering context (OpenGL settings, shaders, etc.)
 void RenderInit();

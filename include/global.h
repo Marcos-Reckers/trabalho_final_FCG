@@ -6,6 +6,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <glm/mat4x4.hpp>
+#include "collisions.h"
 #include "scene.h"
 
 #ifndef M_PI
@@ -69,7 +70,9 @@ extern bool right;
 
 extern glm::vec3 g_PlayerPosition;
 extern glm::mat4 g_PlayerRotation;
+extern AABB g_Playerbbox; // Adicionar a variável global para a bounding box do jogador
 extern float g_PlayerSpeed;
+extern float g_enemySpeed;
 extern float g_CameraHeight;
 
 extern double g_LastCursorPosX, g_LastCursorPosY;

@@ -5,6 +5,8 @@
 #include "global.h"
 #include <glm/gtc/type_ptr.hpp>
 #include "matrices.h"
+#include "collisions.h"
+
 
 void RenderInit() {
     glEnable(GL_DEPTH_TEST);
@@ -32,6 +34,55 @@ void SendMatricesToGPU(const glm::mat4& view, const glm::mat4& projection, const
     glUniformMatrix4fv(g_view_uniform, 1, GL_FALSE, glm::value_ptr(view));
     glUniformMatrix4fv(g_projection_uniform, 1, GL_FALSE, glm::value_ptr(projection));
 }
+
+void DrawBoundingBox(const AABB& box)
+{
+    glPushAttrib(GL_CURRENT_BIT); // Salvar o estado atual da cor
+    glColor3f(1.0f, 0.0f, 0.0f); // Definir a cor vermelha
+
+    glBegin(GL_LINES);
+    // Desenhar as linhas da bounding box
+    glVertex3f(box.min.x, box.min.y, box.min.z);
+    glVertex3f(box.max.x, box.min.y, box.min.z);
+
+    glVertex3f(box.min.x, box.min.y, box.min.z);
+    glVertex3f(box.min.x, box.max.y, box.min.z);
+
+    glVertex3f(box.min.x, box.min.y, box.min.z);
+    glVertex3f(box.min.x, box.min.y, box.max.z);
+
+    glVertex3f(box.max.x, box.max.y, box.max.z);
+    glVertex3f(box.min.x, box.max.y, box.max.z);
+
+    glVertex3f(box.max.x, box.max.y, box.max.z);
+    glVertex3f(box.max.x, box.min.y, box.max.z);
+
+    glVertex3f(box.max.x, box.max.y, box.max.z);
+    glVertex3f(box.max.x, box.max.y, box.min.z);
+
+    glVertex3f(box.min.x, box.max.y, box.min.z);
+    glVertex3f(box.min.x, box.max.y, box.max.z);
+
+    glVertex3f(box.min.x, box.max.y, box.min.z);
+    glVertex3f(box.max.x, box.max.y, box.min.z);
+
+    glVertex3f(box.max.x, box.min.y, box.min.z);
+    glVertex3f(box.max.x, box.min.y, box.max.z);
+
+    glVertex3f(box.min.x, box.min.y, box.max.z);
+    glVertex3f(box.max.x, box.min.y, box.max.z);
+
+    glVertex3f(box.min.x, box.min.y, box.max.z);
+    glVertex3f(box.min.x, box.max.y, box.max.z);
+
+    glVertex3f(box.max.x, box.min.y, box.min.z);
+    glVertex3f(box.max.x, box.max.y, box.min.z);
+
+    glEnd();
+
+    glPopAttrib(); // Restaurar o estado da cor
+}
+
 void RenderModel(const char* model_name, const glm::mat4& model_matrix, int object_id)
 {
     glUniformMatrix4fv(g_model_uniform, 1, GL_FALSE, glm::value_ptr(model_matrix));
